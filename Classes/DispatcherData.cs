@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TD2_Presence
+﻿namespace TD2_Presence.Classes
 {
     public class DispatcherData
     {
@@ -18,12 +12,12 @@ namespace TD2_Presence
         public string stationHash { get; set; }
         public string stationName { get; set; }
         public long timestampFrom { get; set; }
-        public long timestampTo { get; set; }
+        public long? timestampTo { get; set; }
         public int dispatcherLevel { get; set; }
         public bool dispatcherIsSupporter { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
-        public int dispatcherStatus { get; set; }
+        public long dispatcherStatus { get; set; }
         public int dispatcherRate { get; set; }
         public List<string> statusHistory { get; set; }
     }

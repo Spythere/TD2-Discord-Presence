@@ -1,16 +1,21 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Logging;
+using TD2_Presence.Classes;
+using TD2_Presence.Utils;
 
 namespace TD2_Presence
 {
     static class PresenceManager
     {
         static DiscordRpcClient? rpcClient;
-        static DateTime startTime = DateTime.Now;
+        static DateTime startTime = DateTime.UtcNow;
         static bool userFound = false;
+        static int currentSceneryIndex = 0;
 
         public static void InitializePresence()
         {
+            if (rpcClient != null) return;
+
             rpcClient = new("1080201895139885066")
             {
                 Logger = new ConsoleLogger() { Level = LogLevel.Warning }
@@ -18,9 +23,10 @@ namespace TD2_Presence
 
             rpcClient.OnReady += (sender, e) =>
             {
-                Console.WriteLine("Discord Presence gotowy dla użytkownika: {0}", e.User.Username);
+                Console.WriteLine("[V] Discord Presence gotowy!");
             };
 
+            Console.WriteLine("[!] Łączenie z Discordem...");
             rpcClient?.Initialize();
         }
 
@@ -29,15 +35,44 @@ namespace TD2_Presence
             rpcClient?.Dispose();
         }
 
+        public static void ResetPresenceData()
+        {
+            rpcClient?.ClearPresence();
+
+            currentSceneryIndex = 0;
+            userFound = false;
+            startTime = DateTime.UtcNow;
+        }
+
+        public static void ShowPresenceEditorData(string sceneryName)
+        {
+            startTime = DateTime.UtcNow;
+
+            Console.WriteLine($"[V] Wyświetlanie statusu edycji scenerii " + sceneryName + "!");
+
+            rpcClient?.SetPresence(new RichPresence()
+            {
+                Details = "W edytorze scenerii",
+                State = "Edytuje scenerię: " + sceneryName,
+                Assets = new Assets()
+                {
+                    LargeImageKey = "largeimage",
+                },
+                Timestamps = new Timestamps()
+                {
+                    Start = startTime,
+                }
+            });
+        }
+
         public static void ShowPresenceDriverData(ActiveTrain? trainData, int refreshSeconds)
         {
-
             if (trainData != null)
             {
                 if (userFound == false)
                 {
                     userFound = true;
-                    Console.WriteLine($"Znaleziono maszynistę! Dane będą odświeżać się co {refreshSeconds}s!");
+                    Console.WriteLine($"[V] Znaleziono maszynistę! Dane będą odświeżać się co {refreshSeconds}s!");
                 }
 
                 string currentScenery = trainData.currentStationName.Contains(".sc")
@@ -58,12 +93,12 @@ namespace TD2_Presence
 
                     Details = timetableRoute;
                     State = $"{currentScenery} {connectionTrack} ({trainData.speed} km/h)";
-                    startTime = DateTimeOffset.FromUnixTimeMilliseconds(trainData.timetable.stopList[0].departureTimestamp).DateTime; ;
+                    startTime = DateTimeOffset.FromUnixTimeMilliseconds(trainData.timetable.stopList[0].departureTimestamp).DateTime;
 
                     Button rjButton = new Button()
                     {
                         Label = "Szczegóły rozkładu jazdy",
-                        Url = $"https://stacjownik-td2.web.app/trains?train={trainData.trainNo}"
+                        Url = $"https://stacjownik-td2.web.app/trains?trainId={trainData.driverName + trainData.trainNo.ToString()}"
                     };
 
                     rpcClient?.SetPresence(new RichPresence()
@@ -114,11 +149,64 @@ namespace TD2_Presence
             {
                 userFound = false;
 
-                Console.WriteLine("Nie znaleziono maszynisty online! Oczekiwanie...");
+                Console.WriteLine("[!] Nie znaleziono maszynisty online! Oczekiwanie...");
                 rpcClient?.ClearPresence();
             }
         }
 
+        public static void ShowPresenceDispatcherData(IList<DispatcherData>? data, int refreshSeconds)
+        {
+            if (data == null || data.Count == 0)
+            {
+                userFound = false;
 
+                Console.WriteLine("[!] Nie znaleziono dyżurnego, oczekiwanie...");
+                rpcClient?.ClearPresence();
+
+                return;
+            }
+
+            if (userFound == false)
+            {
+                Console.WriteLine("[V] Znaleziono dyżurnego! Dane będą się odświeżać co " + refreshSeconds + "s!");
+                userFound = true;
+                startTime = DateTime.UtcNow;
+            }
+
+            DispatcherData currentData = data[currentSceneryIndex];
+            startTime = DateTimeOffset.FromUnixTimeMilliseconds(currentData.timestampFrom).DateTime;
+
+            RichPresence rp = new RichPresence()
+            {
+                Details = $"Dyżurny na scenerii {currentData.stationName}",
+                State = $"Status: {DispatcherUtils.getDispatcherStatus(currentData.dispatcherStatus)}",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "largeimage",
+                    SmallImageKey = "dispatcher",
+                    SmallImageText = "Tryb dyżurnego"
+                },
+                Timestamps = new Timestamps()
+                {
+                    Start = startTime,
+                }
+            };
+
+            if (data.Count > 1)
+            {
+                rp.Party = new Party
+                {
+                    ID = Secrets.CreateFriendlySecret(new Random()),
+                    Size = currentSceneryIndex + 1
+                    ,
+                    Max = data.Count,
+                    Privacy = Party.PrivacySetting.Public
+                };
+            }
+
+            rpcClient?.SetPresence(rp);
+
+            currentSceneryIndex = (currentSceneryIndex + 1) % data.Count;
+        }
     }
 }

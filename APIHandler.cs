@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using TD2_Presence.Classes;
 
 namespace TD2_Presence
 {
@@ -22,9 +23,9 @@ namespace TD2_Presence
             return trainData;
         }
 
-        public static async Task<DispatcherData?> FetchDispatcherData(string nickname)
+        public static async Task<IList<DispatcherData>?> FetchDispatcherData(string nickname)
         {
-            DispatcherData? dispatcherData = null;
+            IList<DispatcherData>? dispatcherData = null;
 
             HttpResponseMessage response = await client.GetAsync($"https://spythere.pl/api/getDispatchers?dispatcherName={nickname}&online=1");
 
@@ -32,7 +33,7 @@ namespace TD2_Presence
             {
                 IList<DispatcherData>? dispatchersResponse = await response.Content.ReadFromJsonAsync<IList<DispatcherData>>();
 
-                dispatcherData = dispatchersResponse == null ? null : dispatchersResponse[0];
+                dispatcherData = dispatchersResponse;
             }
 
             return dispatcherData;

@@ -1,4 +1,4 @@
-﻿namespace TD2_Presence
+﻿namespace TD2_Presence.Classes
 {
     public class ActiveTrain
     {
