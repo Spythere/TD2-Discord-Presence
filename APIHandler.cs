@@ -1,5 +1,8 @@
-﻿using System.Net.Http.Json;
+﻿using System.Diagnostics;
+using System.Net;
+using System.Net.Http.Json;
 using TD2_Presence.Classes;
+using TD2_Presence.Utils;
 
 namespace TD2_Presence
 {
@@ -7,36 +10,31 @@ namespace TD2_Presence
     {
         static readonly HttpClient client = new HttpClient();
 
-        public static async Task<ActiveTrain?> FetchTrainData(string nickname)
+        public static async Task<PlayerActivityData?> FetchPlayerActivityData(string username)
         {
-            ActiveTrain? trainData = null;
-
-            HttpResponseMessage response = await client.GetAsync("https://spythere.pl/api/getActiveTrainList");
-            
-            if (response.IsSuccessStatusCode)
+            PlayerActivityData? result = null;
+            try
             {
-                IList<ActiveTrain>? activeTrains = await response.Content.ReadFromJsonAsync<List<ActiveTrain>>();
+                HttpResponseMessage response = await client.GetAsync($"https://spythere.pl/api/getPlayerActivity?name={username}");
 
-                trainData = activeTrains?.FirstOrDefault(t => t.driverName.ToLower() == nickname.ToLower());
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadFromJsonAsync<PlayerActivityData>();
+                }
+
+                if (response.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    ConsoleUtils.WriteError("Ten użytkownik jest zablokowany!");
+                    Console.ReadKey();
+                    System.Environment.Exit(0);
+                }
             }
-
-            return trainData;
-        }
-
-        public static async Task<IList<DispatcherData>?> FetchDispatcherData(string nickname)
-        {
-            IList<DispatcherData>? dispatcherData = null;
-
-            HttpResponseMessage response = await client.GetAsync($"https://spythere.pl/api/getDispatchers?dispatcherName={nickname}&online=1");
-
-            if (response.IsSuccessStatusCode)
+            catch (HttpRequestException)
             {
-                IList<DispatcherData>? dispatchersResponse = await response.Content.ReadFromJsonAsync<IList<DispatcherData>>();
-
-                dispatcherData = dispatchersResponse;
+                ConsoleUtils.WriteError("Wystąpił błąd podczas łączenia z serwerem!");
             }
-
-            return dispatcherData;
+           
+            return result;
         }
     }
 }

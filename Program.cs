@@ -1,36 +1,41 @@
-﻿using DiscordRPC.Logging;
-using DiscordRPC;
-using System.Reflection.Emit;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
 using TD2_Presence;
 using TD2_Presence.Classes;
 using TD2_Presence.Utils;
-using System.Timers;
 using Timer = System.Timers.Timer;
 
 TD2Presence TD2Presence = new TD2Presence();
 AppDomain.CurrentDomain.ProcessExit += new EventHandler(TD2Presence.OnProcessExit);
 bool mainLoop = true;
 
+Console.WriteLine("Sprawdzanie aktualizacji...");
+await UpdaterUtils.checkForUpdates();  
+Console.Clear();
+
 Console.WriteLine("==== TD2 Discord Presence by Spythere ====");
-Console.WriteLine("[!] Upewnij się, że masz włączoną oryginalną desktopową aplikację Discorda, a następnie wpisz dane poniżej. Aktywność zniknie automatycznie po zamknięciu tego okna terminalu. Miłego korzystania!");
-Console.WriteLine("[!] Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!");
+ConsoleUtils.WriteWarning("Upewnij się, że masz włączoną oryginalną desktopową aplikację Discorda, a następnie wpisz dane poniżej. Aktywność zniknie automatycznie po zamknięciu tego okna terminalu. Miłego korzystania!");
+ConsoleUtils.WriteWarning("Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!");
+Console.WriteLine("==========================================");
 Console.WriteLine();
 
 while (mainLoop)
 {
-    Console.Write("[?] Wybierz tryb: Dyżurny [1] / Maszynista [2] / Edytor [3] / Wyjście [inny wybór]: ");
-    string? mode = Console.ReadLine();
-
-    switch (mode)
+    ConsoleUtils.WritePrompt("Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; inne - wyjście): ");
+    ConsoleKey key = Console.ReadKey().Key;
+    Console.WriteLine();
+        
+    switch (key)
     {
-        case "1":
-        case "2":
+        case ConsoleKey.D1:
+        case ConsoleKey.D2:
             string? savedUsername = FileUtils.readDoc();
 
             if (savedUsername != null)
-                Console.Write($"[?] Wpisz nazwę użytkownika (domyślnie: {savedUsername}): ");
+                ConsoleUtils.WritePrompt($"Wpisz nazwę użytkownika (domyślnie: {savedUsername}): ");
             else
-                Console.Write("[?] Wpisz nazwę użytkownika: ");
+                ConsoleUtils.WritePrompt("Wpisz nazwę użytkownika: ");
 
             string? username = Console.ReadLine();
 
@@ -38,8 +43,8 @@ while (mainLoop)
             {
                 while (string.IsNullOrWhiteSpace(username))
                 {
-                    Console.WriteLine("[!] Wpisz poprawny nick!");
-                    Console.Write("[?] Wpisz nazwę użytkownika: ");
+                    ConsoleUtils.WriteWarning("Wpisz poprawny nick!");
+                    ConsoleUtils.WritePrompt("Wpisz nazwę użytkownika: ");
                     username = Console.ReadLine();
                 }
             }
@@ -49,17 +54,18 @@ while (mainLoop)
             FileUtils.writeDoc(username);
 
             PresenceManager.InitializePresence();
-            TD2Presence.RunTimer((PresenceMode)Enum.Parse(typeof(PresenceMode), mode), username);
+
+            TD2Presence.RunTimer(key == ConsoleKey.D1 ? PresenceMode.DISPATCHER : PresenceMode.DRIVER, username);
 
             break;
 
-        case "3":
-            Console.Write("[?] Wpisz nazwę scenerii: ");
+        case ConsoleKey.D3:
+            ConsoleUtils.WritePrompt($"Wpisz nazwę scenerii: ");
             string? sceneryName = Console.ReadLine();
 
             while (string.IsNullOrWhiteSpace(sceneryName))
             {
-                Console.Write("[?] Wpisz nazwę scenerii: ");
+                ConsoleUtils.WritePrompt($"Wpisz nazwę scenerii: ");
                 sceneryName = Console.ReadLine();
             }
 
@@ -73,14 +79,13 @@ while (mainLoop)
             break;
     }
 
-    Console.WriteLine("[!] Aby zmienić ustawienia naciśnić Enter, aby wyjść dowolny inny klawisz");
-    ConsoleKeyInfo key = Console.ReadKey();
+    ConsoleUtils.WriteWarning("Aby zmienić ustawienia naciśnij Enter, aby wyjść dowolny inny klawisz");
+    key = Console.ReadKey().Key;
     
     TD2Presence.StopTimer();
     PresenceManager.ResetPresenceData();
 
-    // Wciśnięty enter
-    if (key.KeyChar != (char)13)
+    if (key != ConsoleKey.Enter)
         mainLoop = false;       
 }
 
@@ -98,7 +103,7 @@ class TD2Presence
 
     public void RunTimer(PresenceMode mode, string username)
     {
-        Console.WriteLine("[!] Szukanie informacji o graczu " + username + "...");
+        ConsoleUtils.WriteInfo("Szukanie informacji o graczu " + username + "...");
         RunUpdate(mode, username);
 
         timer = new Timer(refreshSeconds * 1000);
@@ -116,29 +121,19 @@ class TD2Presence
         timer?.Stop();
     }
 
-    public void RunUpdate(PresenceMode mode, string username)
+    public async void RunUpdate(PresenceMode mode, string username)
     {
+        PlayerActivityData? playerActivity = await APIHandler.FetchPlayerActivityData(username);
+
         switch (mode)
         {
             case PresenceMode.DRIVER:
-                UpdateDriverData(username);
+                PresenceManager.ShowPresenceDriverData(playerActivity, refreshSeconds);
                 break;
             case PresenceMode.DISPATCHER:
-                UpdateDispatcherData(username);
+                PresenceManager.ShowPresenceDispatcherData(playerActivity, refreshSeconds);
                 break;
         }
-    }
-
-    public async void UpdateDriverData(string username)
-    {
-        ActiveTrain? train = await APIHandler.FetchTrainData(username);
-        PresenceManager.ShowPresenceDriverData(train, refreshSeconds);
-    }
-
-    public async void UpdateDispatcherData(string username)
-    {
-        IList<DispatcherData>? data = await APIHandler.FetchDispatcherData(username);
-        PresenceManager.ShowPresenceDispatcherData(data, refreshSeconds);
     }
 
     public void OnProcessExit(object sender, EventArgs e)

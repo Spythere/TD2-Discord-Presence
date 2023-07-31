@@ -1,6 +1,6 @@
 ﻿namespace TD2_Presence.Classes
 {
-    public class ActiveTrain
+    public class DriverData
     {
         public int trainNo { get; set; }
         public int mass { get; set; }
@@ -20,10 +20,10 @@
         public object lastSeen { get; set; }
         public string region { get; set; }
         public bool isTimeout { get; set; }
-        public ActiveTrainTimetable timetable { get; set; }
+        public DriverTrainTimetable timetable { get; set; }
     }
 
-    public class ActiveTrainTimetableStop
+    public class DriverTimetableStop
     {
         public string stopName { get; set; }
         public string stopNameRAW { get; set; }
@@ -47,12 +47,12 @@
         public int? stopTime { get; set; }
     }
 
-    public class ActiveTrainTimetable
+    public class DriverTrainTimetable
     {
         public bool SKR { get; set; }
         public bool TWR { get; set; }
         public string category { get; set; }
-        public List<ActiveTrainTimetableStop> stopList { get; set; }
+        public List<DriverTimetableStop> stopList { get; set; }
         public string route { get; set; }
         public int timetableId { get; set; }
         public List<string> sceneries { get; set; }

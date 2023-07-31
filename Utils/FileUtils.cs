@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TD2_Presence.Utils
+﻿namespace TD2_Presence.Utils
 {
     public static class FileUtils
     {
