@@ -15,7 +15,7 @@ namespace TD2_Presence
             PlayerActivityData? result = null;
             try
             {
-                HttpResponseMessage response = await client.GetAsync($"https://spythere.pl/api/getPlayerActivity?name={username}");
+                HttpResponseMessage response = await client.GetAsync($"https://stacjownik.spythere.pl/api/getPlayerActivity?name={username}");
 
                 if (response.IsSuccessStatusCode)
                 {

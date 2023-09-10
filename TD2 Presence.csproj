@@ -9,12 +9,17 @@
 	<PublishSingleFile>true</PublishSingleFile>
 	<SelfContained>true</SelfContained>
 	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-	<ApplicationIcon>presence.ico</ApplicationIcon>
+	<ApplicationIcon>icon.ico</ApplicationIcon>
 	<Version>0.0.2.0</Version>
 	<UseWindowsForms>true</UseWindowsForms>
+	<PackageId>$(AssemblyName)</PackageId>
+	<Title>TD2 Discord Presence</Title>
+	<Authors>Spythere</Authors>
+	<Company />
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="icon.ico" />
     <Content Include="presence.ico" />
   </ItemGroup>
 

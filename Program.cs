@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Net;
+using System.Reflection;
 using TD2_Presence;
 using TD2_Presence.Classes;
 using TD2_Presence.Utils;
 using Timer = System.Timers.Timer;
+
+Version? currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
+Console.Title = $"TD2 Discord Presence ({currentVersion})";
 
 TD2Presence TD2Presence = new TD2Presence();
 AppDomain.CurrentDomain.ProcessExit += new EventHandler(TD2Presence.OnProcessExit);
@@ -14,7 +18,7 @@ Console.WriteLine("Sprawdzanie aktualizacji...");
 await UpdaterUtils.checkForUpdates();  
 Console.Clear();
 
-Console.WriteLine("==== TD2 Discord Presence by Spythere ====");
+Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere ====");
 ConsoleUtils.WriteWarning("Upewnij się, że masz włączoną oryginalną desktopową aplikację Discorda, a następnie wpisz dane poniżej. Aktywność zniknie automatycznie po zamknięciu tego okna terminalu. Miłego korzystania!");
 ConsoleUtils.WriteWarning("Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!");
 Console.WriteLine("==========================================");
