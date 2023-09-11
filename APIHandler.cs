@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Json;
 using TD2_Presence.Classes;
 using TD2_Presence.Utils;
