@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 
-namespace TD2_Presence.Utils
+namespace TD2_Presence
 {
     public static class ConfigManager
     {
         static readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         static readonly string configPath = $"{docPath}/TD2Presence/config.json";
-           
+
         public static void SetupConfig()
         {
             if (!Directory.Exists($"{docPath}/TD2Presence"))

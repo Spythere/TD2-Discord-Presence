@@ -25,11 +25,11 @@ namespace TD2_Presence
             {
                 if(userFound)
                 {
-                    ConsoleUtils.WriteSuccess("Discord Presence gotowy!");
+                    ConsoleUtils.WriteSuccess(ResourceUtils.Get("Presence Loaded Info"));
                 }
             };
 
-            ConsoleUtils.WriteInfo("Łączenie z Discordem...");
+            ConsoleUtils.WriteInfo(ResourceUtils.Get("Presence Loading Info"));
             rpcClient?.Initialize();
         }
 
@@ -77,7 +77,7 @@ namespace TD2_Presence
                 if (userFound == false)
                 {
                     userFound = true;
-                    ConsoleUtils.WriteSuccess($"Znaleziono maszynistę! Dane będą odświeżać się co {refreshSeconds}s!");
+                    ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Driver Found Info"), refreshSeconds.ToString());
                     startTime = DateTime.UtcNow;
                 }
 

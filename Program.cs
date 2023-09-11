@@ -1,8 +1,10 @@
-﻿using System.Reflection;
+﻿using System.Globalization;
+using System.Reflection;
 using TD2_Presence;
 using TD2_Presence.Utils;
 
 PresenceProgram presenceProgram = new PresenceProgram();
+presenceProgram.SetupCulture();
 presenceProgram.SetupProgram();
 
 class PresenceProgram
@@ -14,16 +16,21 @@ class PresenceProgram
         currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
     }
 
+    public void SetupCulture()
+    {
+        CultureInfo.CurrentCulture = new CultureInfo("pl-PL");
+    }
+
     public void SetupProgram()
     {
         /* Presence handlers */
         AppDomain.CurrentDomain.ProcessExit += new EventHandler(PresenceTimer.OnProcessExit!);
 
         /* Console app title */
-        Console.Title = $"TD2 Discord Presence ({currentVersion})";
+        Console.Title = $"{ResourceUtils.Get("Title")} ({currentVersion})";
 
         /* Update checking */
-        Console.WriteLine("Sprawdzanie aktualizacji...");
+        Console.WriteLine(ResourceUtils.Get("Update Checking"));
         Task.Run(() => UpdaterUtils.CheckForUpdates()).Wait();
         Console.Clear();
 
@@ -32,8 +39,8 @@ class PresenceProgram
 
         /* Initial messages */
         Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere ====");
-        ConsoleUtils.WriteWarning("Upewnij się, że masz włączoną oryginalną desktopową aplikację Discorda, a następnie wpisz dane poniżej. Aktywność zniknie automatycznie po zamknięciu tego okna terminalu. Miłego korzystania!");
-        ConsoleUtils.WriteWarning("Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!");
+        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 1")!);
+        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 2")!);
         Console.WriteLine("==========================================");
         Console.WriteLine();
         
@@ -45,7 +52,7 @@ class PresenceProgram
     {
         while (mainLoop)
         {
-            ConsoleUtils.WritePrompt("Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; inne - wyjście): ");
+            ConsoleUtils.WritePrompt(ResourceUtils.Get("Mode Choice Info")!);
             ConsoleKey key = Console.ReadKey().Key;
             Console.WriteLine();
 
@@ -56,9 +63,9 @@ class PresenceProgram
                     string? savedUsername = ConfigManager.ReadValue("savedUsername");
 
                     if (savedUsername != null)
-                        ConsoleUtils.WritePrompt($"Wpisz nazwę użytkownika (domyślnie: {savedUsername}): ");
+                        ConsoleUtils.WritePrompt(string.Format(ResourceUtils.Get("Username Prompt With Default")!, savedUsername));
                     else
-                        ConsoleUtils.WritePrompt("Wpisz nazwę użytkownika: ");
+                        ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
 
                     string? username = Console.ReadLine();
 
@@ -66,8 +73,8 @@ class PresenceProgram
                     {
                         while (string.IsNullOrWhiteSpace(username))
                         {
-                            ConsoleUtils.WriteWarning("Wpisz poprawny nick!");
-                            ConsoleUtils.WritePrompt("Wpisz nazwę użytkownika: ");
+                            ConsoleUtils.WriteWarning(ResourceUtils.Get("Incorrect Username Warning")!);
+                            ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
                             username = Console.ReadLine();
                         }
                     }
@@ -82,12 +89,12 @@ class PresenceProgram
                     break;
 
                 case ConsoleKey.D3:
-                    ConsoleUtils.WritePrompt($"Wpisz nazwę scenerii: ");
+                    ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
                     string? sceneryName = Console.ReadLine();
 
                     while (string.IsNullOrWhiteSpace(sceneryName))
                     {
-                        ConsoleUtils.WritePrompt($"Wpisz nazwę scenerii: ");
+                        ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
                         sceneryName = Console.ReadLine();
                     }
 
@@ -101,7 +108,7 @@ class PresenceProgram
                     break;
             }
 
-            ConsoleUtils.WriteWarning("Aby zmienić ustawienia naciśnij Enter, aby wyjść dowolny inny klawisz");
+            ConsoleUtils.WriteWarning(ResourceUtils.Get("Change Settings Info")!);
             key = Console.ReadKey().Key;
 
             PresenceTimer.Stop();
@@ -112,8 +119,6 @@ class PresenceProgram
         }
     }
 }
-
-
 
 
 

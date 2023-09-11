@@ -18,7 +18,7 @@ namespace TD2_Presence
 
         public static void Run(PresenceMode mode, string username)
         {
-            ConsoleUtils.WriteInfo("Szukanie informacji o graczu " + username + "...");
+            ConsoleUtils.WriteInfo(string.Format(ResourceUtils.Get("Searching User Info"), username));
             RunUpdate(mode, username);
 
             timer = new Timer(refreshSeconds * 1000);
