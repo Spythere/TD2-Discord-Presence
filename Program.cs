@@ -18,7 +18,7 @@ class PresenceProgram
 
     public void SetupCulture()
     {
-        CultureInfo.CurrentCulture = new CultureInfo("pl-PL");
+        ResourceUtils.SetCulture("pl-PL");
     }
 
     public void SetupProgram()
@@ -29,13 +29,16 @@ class PresenceProgram
         /* Console app title */
         Console.Title = $"{ResourceUtils.Get("Title")} ({currentVersion})";
 
+        /* Config file setup */
+        ConfigManager.SetupConfig();
+
+        /* Language choice */
+        LanguageChoice();
+
         /* Update checking */
         Console.WriteLine(ResourceUtils.Get("Update Checking"));
         Task.Run(() => UpdaterUtils.CheckForUpdates()).Wait();
         Console.Clear();
-
-        /* Config file setup */
-        ConfigManager.SetupConfig();
 
         /* Initial messages */
         Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere ====");
@@ -46,6 +49,37 @@ class PresenceProgram
         
         /* Program main loop */
         runMainLoop();
+    }
+
+    private void LanguageChoice()
+    {
+        string? language = ConfigManager.ReadValue("language");
+        if (language != null)
+        {
+            ResourceUtils.SetCulture(language);
+            return;
+        }
+
+        ConsoleUtils.WriteInfo("Wybierz język. Będzie on dotyczyć programu oraz informacji pokazywanych na Discordzie.");
+        ConsoleUtils.WriteInfo("Select a language. It will apply to the program and the information displayed on Discord.");
+        Console.WriteLine();
+        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH): ");
+        ConsoleKey key = Console.ReadKey().Key;
+
+        switch(key)
+        {
+            case ConsoleKey.D1:
+            default:
+                ResourceUtils.SetCulture("pl-PL");
+                ConfigManager.SetValue("language", "pl-PL");
+                break;
+            case ConsoleKey.D2:
+                ResourceUtils.SetCulture("en-US");
+                ConfigManager.SetValue("language", "en-US");
+                break;
+        }
+
+        Console.Clear();
     }
 
     private void runMainLoop()

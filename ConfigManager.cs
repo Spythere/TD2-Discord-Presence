@@ -12,9 +12,12 @@ namespace TD2_Presence
             if (!Directory.Exists($"{docPath}/TD2Presence"))
             {
                 Directory.CreateDirectory($"{docPath}/TD2Presence");
-                /*string output = Newtonsoft.Json.JsonConvert.SerializeObject(null, Newtonsoft.Json.Formatting.Indented);*/
-                File.WriteAllText(configPath, "{}");
             }
+
+            if(!File.Exists(configPath) || string.IsNullOrWhiteSpace(File.ReadAllText(configPath)))
+            {
+                File.WriteAllText(configPath, "{}");
+            } 
         }
 
         public static void SetValue(string key, string content)

@@ -12,6 +12,7 @@ namespace TD2_Presence
         public static async Task<PlayerActivityData?> FetchPlayerActivityData(string username)
         {
             PlayerActivityData? result = null;
+
             try
             {
                 HttpResponseMessage response = await client.GetAsync($"https://stacjownik.spythere.pl/api/getPlayerActivity?name={username}");
@@ -23,14 +24,14 @@ namespace TD2_Presence
 
                 if (response.StatusCode == HttpStatusCode.Forbidden)
                 {
-                    ConsoleUtils.WriteError("Ten użytkownik jest zablokowany!");
+                    ConsoleUtils.WriteError(ResourceUtils.Get("User Is Blocked Warning"));
                     Console.ReadKey();
                     System.Environment.Exit(0);
                 }
             }
             catch (HttpRequestException)
             {
-                ConsoleUtils.WriteError("Wystąpił błąd podczas łączenia z serwerem!");
+                ConsoleUtils.WriteError(ResourceUtils.Get("Server Error Warning"));
             }
            
             return result;

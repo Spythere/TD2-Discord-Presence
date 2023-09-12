@@ -9,7 +9,10 @@ namespace TD2_Presence
     {
         static DiscordRpcClient? rpcClient;
         static DateTime startTime = DateTime.UtcNow;
+        
         static bool userFound = false;
+        static bool timetableFound = false;
+
         static int currentSceneryIndex = 0;
 
         public static void InitializePresence()
@@ -51,12 +54,12 @@ namespace TD2_Presence
         {
             startTime = DateTime.UtcNow;
 
-            ConsoleUtils.WriteSuccess($"Wyświetlanie statusu edycji scenerii " + sceneryName + "!");
+            ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Scenery Editing Info"), sceneryName));
 
             rpcClient?.SetPresence(new RichPresence()
             {
-                Details = "W edytorze scenerii",
-                State = "Edytuje scenerię: " + sceneryName,
+                Details = ResourceUtils.Get("RPC Scenery Details Info"),
+                State = $"{ResourceUtils.Get("RPC Scenery State Info")}{sceneryName}",
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage",
@@ -77,7 +80,9 @@ namespace TD2_Presence
                 if (userFound == false)
                 {
                     userFound = true;
-                    ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Driver Found Info"), refreshSeconds.ToString());
+                    timetableFound = false;
+
+                    ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Driver Found Info"), refreshSeconds.ToString()));
                     startTime = DateTime.UtcNow;
                 }
 
@@ -85,24 +90,32 @@ namespace TD2_Presence
                     ? driverData.currentStationName.Split(".sc")[0].Split(" ")[0] + " - offline"
                     : driverData.currentStationName;
 
-                string connectionTrack = driverData.connectedTrack != "" ? "/ szlak " + driverData.connectedTrack.Split("/")[0] : "";
-                string connectionSignal = driverData.signal != "" ? "/ semafor " + driverData.signal.Split("/")[0] : "";
+                string? connectionTrack = driverData.connectedTrack != "" ? $"/ {ResourceUtils.Get("Current Track Title")} {driverData.connectedTrack.Split("/")[0]}" : null;
+                string? connectionSignal = driverData.signal != "" ? $"/ {ResourceUtils.Get("Current Signal Title")} {driverData.signal.Split("/")[0]}" : null;
 
                 string State;
                 string Details;
 
                 if (driverData.timetable != null)
                 {
+                    if(timetableFound == false)
+                    {
+                            timetableFound = true;
+                        DateTime scheduledBegin = DateTimeOffset.FromUnixTimeMilliseconds(driverData.timetable.stopList[0].departureTimestamp).DateTime;
+
+                        startTime = DateTime.Compare(scheduledBegin, DateTime.UtcNow) < 0 ? scheduledBegin : DateTime.UtcNow;
+                    }
+
                     string timetableRoute = driverData.timetable.category
                         + " " + driverData.trainNo
                         + " " + driverData.timetable.route.Replace("|", " -> ");
 
                     Details = timetableRoute;
-                    State = $"{currentScenery} {connectionTrack} ({driverData.speed} km/h)";
+                    State = $"{currentScenery} {(connectionTrack ?? connectionSignal)} ({driverData.speed} km/h)";
 
                     DiscordRPC.Button rjButton = new DiscordRPC.Button()
                     {
-                        Label = "Szczegóły rozkładu jazdy",
+                        Label = ResourceUtils.Get("RPC Driver Timetable Button Label"),
                         Url = $"https://stacjownik-td2.web.app/trains?trainId={driverData.driverName + driverData.trainNo.ToString()}"
                     };
 
@@ -114,7 +127,7 @@ namespace TD2_Presence
                         {
                             LargeImageKey = "largeimage",
                             SmallImageKey = "driver",
-                            SmallImageText = "Tryb maszynisty"
+                            SmallImageText = ResourceUtils.Get("RPC Driver Mode Title")
                         },
                         Timestamps = new Timestamps()
                         {
@@ -128,7 +141,13 @@ namespace TD2_Presence
                 }
                 else
                 {
-                    Details = $"{driverData.trainNo} - brak rozkładu jazdy";
+                    if (timetableFound == true)
+                    {
+                        timetableFound = false;
+                        startTime = DateTime.UtcNow;
+                    }
+
+                    Details = $"{driverData.trainNo} - {ResourceUtils.Get("RPC Driver No Timetable Title")}";
                     State = $"{currentScenery} {connectionSignal} ({driverData.speed} km/h)";
 
                     rpcClient?.SetPresence(new RichPresence()
@@ -139,7 +158,7 @@ namespace TD2_Presence
                         {
                             LargeImageKey = "largeimage",
                             SmallImageKey = "driver",
-                            SmallImageText = "Tryb maszynisty"
+                            SmallImageText = ResourceUtils.Get("RPC Driver Mode Title")
                         },
                         Timestamps = new Timestamps()
                         {
@@ -153,8 +172,11 @@ namespace TD2_Presence
             else
             {
                 userFound = false;
+                timetableFound = false;
 
-                ConsoleUtils.WriteWarning("Nie znaleziono maszynisty online! Oczekiwanie...");
+                
+
+                ConsoleUtils.WriteWarning(ResourceUtils.Get("Driver Not Found Info"));
                 rpcClient?.ClearPresence();
             }
         }
@@ -166,8 +188,7 @@ namespace TD2_Presence
             if (dispatcherData == null || dispatcherData.Count == 0)
             {
                 userFound = false;
-
-                ConsoleUtils.WriteWarning("Nie znaleziono dyżurnego, oczekiwanie...");
+                ConsoleUtils.WriteWarning(ResourceUtils.Get("Dispatcher Not Found Info"));
                 rpcClient?.ClearPresence();
 
                 return;
@@ -175,7 +196,7 @@ namespace TD2_Presence
 
             if (userFound == false)
             {
-                ConsoleUtils.WriteSuccess("Znaleziono dyżurnego! Dane będą się odświeżać co " + refreshSeconds + "s!");
+                ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Dispatcher Found Info"), refreshSeconds.ToString()));
                 userFound = true;
                 startTime = DateTime.UtcNow;
             }
@@ -185,13 +206,13 @@ namespace TD2_Presence
 
             RichPresence rp = new RichPresence()
             {
-                Details = $"Dyżurny na scenerii {currentData.stationName}",
+                Details = $"{ResourceUtils.Get("RPC Dispatcher Scenery Title")} {currentData.stationName}",
                 State = $"Status: {DispatcherUtils.getDispatcherStatus(currentData.dispatcherStatus)}",
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage",
                     SmallImageKey = "dispatcher",
-                    SmallImageText = "Tryb dyżurnego"
+                    SmallImageText = ResourceUtils.Get("RPC Dispatcher Mode Title")
                 },
                 Timestamps = new Timestamps()
                 {

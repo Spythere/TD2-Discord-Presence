@@ -38,20 +38,20 @@ namespace TD2_Presence.Utils
 
                 if (latestVersion > currentVersion)
                 {
-                    DialogResult dialogResult = MessageBox.Show($"Nowa wersja aplikacji ({ latestVersion}) jest dostępna! Czy chcesz ją teraz pobrać?", "Dostępna nowa wersja", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    DialogResult dialogResult = MessageBox.Show(string.Format(ResourceUtils.Get("Update Dialog Desc"), latestVersion), ResourceUtils.Get("Update Dialog Title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     
                     if (dialogResult == DialogResult.OK)
                     {
                         string downloadUrl = data.Assets[0].BrowserDownloadUrl;
 
                         Console.Clear();
-                        ConsoleUtils.WriteWarning("W tym momencie twoja domyślna przeglądarka powinna pobrać paczkę ZIP z najnowszą wersją aplikacji.");
-                        ConsoleUtils.WriteWarning("Jeśli nic się nie otworzyło, skopiuj i otwórz ręcznie poniższy link, a następnie wypakuj go w dowolnym miejscu.");
+                        ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 1"));
+                        ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 2"));
                         Console.WriteLine(downloadUrl);
 
                         Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
-                        ConsoleUtils.WriteWarning("Naciśnij jakikolwiek przycisk, aby zamknąć aplikację!");
-                        
+                        ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 3"));
+
                         Console.ReadKey();
                         System.Environment.Exit(0);
                     }
@@ -59,7 +59,7 @@ namespace TD2_Presence.Utils
             }
             catch (Exception)
             {
-                ConsoleUtils.WriteError("Ups! Nie można pobrać danych o aktualizacji!");
+                ConsoleUtils.WriteError(ResourceUtils.Get("Update Error"));
             }
 
             return false;
