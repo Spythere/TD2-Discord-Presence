@@ -3,13 +3,13 @@ using DiscordRPC.Logging;
 using TD2_Presence.Classes;
 using TD2_Presence.Utils;
 
-namespace TD2_Presence
+namespace TD2_Presence.Managers
 {
     static class PresenceManager
     {
         static DiscordRpcClient? rpcClient;
         static DateTime startTime = DateTime.UtcNow;
-        
+
         static bool userFound = false;
         static bool timetableFound = false;
 
@@ -26,7 +26,7 @@ namespace TD2_Presence
 
             rpcClient.OnReady += (sender, e) =>
             {
-                if(userFound)
+                if (userFound)
                 {
                     ConsoleUtils.WriteSuccess(ResourceUtils.Get("Presence Loaded Info"));
                 }
@@ -98,9 +98,9 @@ namespace TD2_Presence
 
                 if (driverData.timetable != null)
                 {
-                    if(timetableFound == false)
+                    if (timetableFound == false)
                     {
-                            timetableFound = true;
+                        timetableFound = true;
                         DateTime scheduledBegin = DateTimeOffset.FromUnixTimeMilliseconds(driverData.timetable.stopList[0].departureTimestamp).DateTime;
 
                         startTime = DateTime.Compare(scheduledBegin, DateTime.UtcNow) < 0 ? scheduledBegin : DateTime.UtcNow;
@@ -111,7 +111,7 @@ namespace TD2_Presence
                         + " " + driverData.timetable.route.Replace("|", " -> ");
 
                     Details = timetableRoute;
-                    State = $"{currentScenery} {(connectionTrack ?? connectionSignal)} ({driverData.speed} km/h)";
+                    State = $"{currentScenery} {connectionTrack ?? connectionSignal} ({driverData.speed} km/h)";
 
                     DiscordRPC.Button rjButton = new DiscordRPC.Button()
                     {
@@ -174,7 +174,7 @@ namespace TD2_Presence
                 userFound = false;
                 timetableFound = false;
 
-                
+
 
                 ConsoleUtils.WriteWarning(ResourceUtils.Get("Driver Not Found Info"));
                 rpcClient?.ClearPresence();

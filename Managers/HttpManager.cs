@@ -3,9 +3,9 @@ using System.Net.Http.Json;
 using TD2_Presence.Classes;
 using TD2_Presence.Utils;
 
-namespace TD2_Presence
+namespace TD2_Presence.Managers
 {
-    public static class APIHandler
+    public static class HttpManager
     {
         static readonly HttpClient client = new HttpClient();
 
@@ -26,14 +26,14 @@ namespace TD2_Presence
                 {
                     ConsoleUtils.WriteError(ResourceUtils.Get("User Is Blocked Warning"));
                     Console.ReadKey();
-                    System.Environment.Exit(0);
+                    Environment.Exit(0);
                 }
             }
             catch (HttpRequestException)
             {
                 ConsoleUtils.WriteError(ResourceUtils.Get("Server Error Warning"));
             }
-           
+
             return result;
         }
     }

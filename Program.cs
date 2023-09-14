@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Reflection;
 using TD2_Presence;
+using TD2_Presence.Managers;
 using TD2_Presence.Utils;
 
 PresenceProgram presenceProgram = new PresenceProgram();

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TD2_Presence
+namespace TD2_Presence.Managers
 {
     public static class ConfigManager
     {
@@ -14,10 +14,10 @@ namespace TD2_Presence
                 Directory.CreateDirectory($"{docPath}/TD2Presence");
             }
 
-            if(!File.Exists(configPath) || string.IsNullOrWhiteSpace(File.ReadAllText(configPath)))
+            if (!File.Exists(configPath) || string.IsNullOrWhiteSpace(File.ReadAllText(configPath)))
             {
                 File.WriteAllText(configPath, "{}");
-            } 
+            }
         }
 
         public static void SetValue(string key, string content)

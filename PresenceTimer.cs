@@ -1,4 +1,5 @@
 ﻿using TD2_Presence.Classes;
+using TD2_Presence.Managers;
 using TD2_Presence.Utils;
 using Timer = System.Timers.Timer;
 
@@ -38,7 +39,7 @@ namespace TD2_Presence
 
         private static async void RunUpdate(PresenceMode mode, string username)
         {
-            PlayerActivityData? playerActivity = await APIHandler.FetchPlayerActivityData(username);
+            PlayerActivityData? playerActivity = await HttpManager.FetchPlayerActivityData(username);
 
             switch (mode)
             {

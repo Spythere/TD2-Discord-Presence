@@ -17,7 +17,7 @@ namespace TD2_Presence.Utils
 
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://api.github.com/repos/Spythere/test/releases/latest");
+                HttpResponseMessage response = await client.GetAsync("https://api.github.com/repos/Spythere/TD2-Discord-Presence/releases/latest");
 
                 if(response == null || !response.IsSuccessStatusCode) 
                 {
