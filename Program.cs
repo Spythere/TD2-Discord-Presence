@@ -51,17 +51,17 @@ class PresenceProgram
         runMainLoop();
     }
 
-    private void LanguageChoice()
+    private void LanguageChoice(bool newChoice = false)
     {
         string? language = ConfigManager.ReadValue("language");
-        if (language != null)
+        if (language != null && !newChoice)
         {
             ResourceUtils.SetCulture(language);
             return;
         }
 
-        ConsoleUtils.WriteInfo("Wybierz język. Będzie on dotyczyć programu oraz informacji pokazywanych na Discordzie.");
-        ConsoleUtils.WriteInfo("Select a language. It will apply to the program and the information displayed on Discord.");
+        ConsoleUtils.WriteInfo("Wybierz język. Będzie on dotyczyć tylko tekstu w konsoli. Informacje Discord Presence będą pokazane w języku polskim.");
+        ConsoleUtils.WriteInfo("Select a language. It will apply to the console text only. Discord Presence info will be shown in Polish.");
         Console.WriteLine();
         ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH): ");
         ConsoleKey key = Console.ReadKey().Key;
@@ -78,8 +78,6 @@ class PresenceProgram
                 ConfigManager.SetValue("language", "en-US");
                 break;
         }
-
-        Console.Clear();
     }
 
     private void runMainLoop()
@@ -137,6 +135,11 @@ class PresenceProgram
 
                     break;
 
+                case ConsoleKey.D4:
+                    LanguageChoice(true);
+                    Console.Clear();
+                    continue;
+
                 default:
                     System.Environment.Exit(0);
                     break;
@@ -150,6 +153,7 @@ class PresenceProgram
 
             if (key != ConsoleKey.Enter)
                 mainLoop = false;
+            
         }
     }
 }

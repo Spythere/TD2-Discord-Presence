@@ -158,7 +158,7 @@
     <comment>Initial message, line 2</comment>
   </data>
   <data name="Mode Choice Info" xml:space="preserve">
-    <value>Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; inne - wyjście): </value>
+    <value>Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; 4 - język; inne - wyjście): </value>
     <comment>Mode choice message</comment>
   </data>
   <data name="Presence Loaded Info" xml:space="preserve">
