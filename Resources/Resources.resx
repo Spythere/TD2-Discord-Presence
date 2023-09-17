@@ -118,131 +118,131 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Change Settings Info" xml:space="preserve">
-    <value>Press Enter to change settings or any other key to close the program</value>
+    <value>Aby zmienić ustawienia naciśnij Enter, aby wyjść dowolny inny klawisz</value>
     <comment>Information about changing settings</comment>
   </data>
   <data name="Current Signal Title" xml:space="preserve">
-    <value>signal</value>
+    <value>semafor</value>
     <comment>Current driver signal location title</comment>
   </data>
   <data name="Current Track Title" xml:space="preserve">
-    <value>route</value>
+    <value>szlak</value>
     <comment>Current driver track location title</comment>
   </data>
   <data name="Dispatcher Found Info" xml:space="preserve">
-    <value>Found the dispatcher! Online data will be refreshed every {0} seconds!</value>
+    <value>Znaleziono dyżurnego! Dane będą odświeżać się co {0}s!</value>
     <comment>Information about finding the online dispatcher</comment>
   </data>
   <data name="Dispatcher Not Found Info" xml:space="preserve">
-    <value>The online dispatcher has not been found! Waiting...</value>
+    <value>Nie znaleziono dyżurnego online! Oczekiwanie...</value>
     <comment>Information about not finding the online dispatcher</comment>
   </data>
   <data name="Driver Found Info" xml:space="preserve">
-    <value>Found the driver! Online data will be refreshed every {0} seconds!</value>
+    <value>Znaleziono maszynistę! Dane będą odświeżać się co {0}s!</value>
     <comment>Information about finding the online driver</comment>
   </data>
   <data name="Driver Not Found Info" xml:space="preserve">
-    <value>The online driver has not been found! Waiting...</value>
+    <value>Nie znaleziono maszynisty online! Oczekiwanie...</value>
     <comment>Information about not finding the online driver</comment>
   </data>
   <data name="Incorrect Username Warning" xml:space="preserve">
-    <value>Enter correct username!</value>
+    <value>Wpisz poprawny nick!</value>
     <comment>Warning for an incorrect username entered</comment>
   </data>
   <data name="Initial Info 1" xml:space="preserve">
-    <value>Make sure you've got an original Discord app open, then enter your data below. The Discord Presence activity will disappear automatically after closing this terminal window. Enjoy!</value>
+    <value>Upewnij się, że masz włączoną oryginalną desktopową aplikację Discorda, a następnie wpisz dane poniżej. Aktywność zniknie automatycznie po zamknięciu tego okna terminalu. Miłego korzystania!</value>
     <comment>Initial message, line 1</comment>
   </data>
   <data name="Initial Info 2" xml:space="preserve">
-    <value>Remember to turn the "Activity Status" option on in server's Privacy Settings AND personal settings under the "Activity Privacy" tab. Otherwise the custom status might not be displayed to other users!</value>
+    <value>Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!</value>
     <comment>Initial message, line 2</comment>
   </data>
   <data name="Mode Choice Info" xml:space="preserve">
-    <value>Choose the mode (1 - dispatcher; 2 - driver; 3 - editor; other - exit): </value>
+    <value>Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; 4 - język; inne - wyjście): </value>
     <comment>Mode choice message</comment>
   </data>
   <data name="Presence Loaded Info" xml:space="preserve">
-    <value>Discord Presence is ready!</value>
+    <value>Discord Presence gotowy!</value>
     <comment>Information about successful connection with Discord</comment>
   </data>
   <data name="Presence Loading Info" xml:space="preserve">
-    <value>Connecting with your Discord app...</value>
+    <value>Łączenie z Discordem...</value>
     <comment>Information about connecting with Discord</comment>
   </data>
   <data name="RPC Dispatcher Mode Title" xml:space="preserve">
-    <value>Dispatcher mode</value>
+    <value>Tryb dyżurnego</value>
     <comment>Rich Presence title with dispatcher mode info</comment>
   </data>
   <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
-    <value>Dispatching on</value>
+    <value>Dyżurny na scenerii</value>
     <comment>Current scenery taken by the dispatcher title</comment>
   </data>
   <data name="RPC Driver Mode Title" xml:space="preserve">
-    <value>Driver mode</value>
+    <value>Tryb maszynisty</value>
     <comment>Rich Presence title with driver mode info</comment>
   </data>
   <data name="RPC Driver No Timetable Title" xml:space="preserve">
-    <value>no active timetable</value>
+    <value>brak rozkładu jazdy</value>
     <comment>Rich Presence title with information about no timetable</comment>
   </data>
   <data name="RPC Driver Timetable Button Label" xml:space="preserve">
-    <value>Active timetable details</value>
+    <value>Szczegóły rozkładu jazdy</value>
     <comment>Rich Presence button label with driver TT info</comment>
   </data>
   <data name="RPC Scenery Details Info" xml:space="preserve">
-    <value>In the scenery editor</value>
+    <value>W edytorze scenerii</value>
     <comment>Rich Presence editing scenery details info</comment>
   </data>
   <data name="RPC Scenery State Info" xml:space="preserve">
-    <value>Editing scenery: </value>
+    <value>Edytuje scenerię: </value>
     <comment>Rich Presence editing scenery state info</comment>
   </data>
   <data name="Scenery Editing Info" xml:space="preserve">
-    <value>Currently displaying editing {0} scenery status!</value>
+    <value>Wyświetlanie statusu edycji scenerii {0}!</value>
     <comment>Information about editing scenery</comment>
   </data>
   <data name="Scenery Name Prompt" xml:space="preserve">
-    <value>Enter the scenery name: </value>
+    <value>Wpisz nazwę scenerii: </value>
     <comment>Prompt for a scenery name</comment>
   </data>
   <data name="Searching User Info" xml:space="preserve">
-    <value>Searching for online info of {0}...</value>
+    <value>Szukanie informacji o graczu {0}...</value>
     <comment>Information about searching user data</comment>
   </data>
   <data name="Server Error Warning" xml:space="preserve">
-    <value>The error occurred while trying to connect with the server!</value>
+    <value>Wystąpił błąd podczas próby połączenia z serwerem!</value>
     <comment>Warning for a server connection error</comment>
   </data>
   <data name="Status Code -1" xml:space="preserve">
-    <value>UNAVAILABLE</value>
+    <value>NIEDOSTĘPNY</value>
     <comment>Dispatcher status info: unavailable</comment>
   </data>
   <data name="Status Code -2" xml:space="preserve">
-    <value>NOT SIGNED IN</value>
+    <value>NIEWPISANY</value>
     <comment>Dispatcher status info: not signed</comment>
   </data>
   <data name="Status Code 0" xml:space="preserve">
-    <value>NO LIMIT</value>
+    <value>BEZ LIMITU</value>
     <comment>Dispatcher status info: no limit</comment>
   </data>
   <data name="Status Code 1" xml:space="preserve">
-    <value>AFK</value>
+    <value>ZARAZ WRACAM</value>
     <comment>Dispatcher status info: AFK</comment>
   </data>
   <data name="Status Code 2" xml:space="preserve">
-    <value>ENDING</value>
+    <value>KOŃCZY</value>
     <comment>Dispatcher status info: ending</comment>
   </data>
   <data name="Status Code 3" xml:space="preserve">
-    <value>NO SPACE</value>
+    <value>BRAK MIEJSCA</value>
     <comment>Dispatcher status info: no space</comment>
   </data>
   <data name="Status Code 4" xml:space="preserve">
-    <value>UNKNOWN</value>
+    <value>NIEZNANY</value>
     <comment>Dispatcher status info: unknown</comment>
   </data>
   <data name="Status Code Available" xml:space="preserve">
-    <value>ONLINE UNTIL</value>
+    <value>DOSTĘPNY DO</value>
     <comment>Dispatcher status info: available</comment>
   </data>
   <data name="Title" xml:space="preserve">
@@ -250,43 +250,43 @@
     <comment>App title</comment>
   </data>
   <data name="Update Checking" xml:space="preserve">
-    <value>Searching for updates...</value>
+    <value>Sprawdzanie aktualizacji...</value>
     <comment>Checking for updates</comment>
   </data>
   <data name="Update Dialog Desc" xml:space="preserve">
-    <value>New TD2 Presence version ({0}) is available! Do you want to download it now?</value>
+    <value>Nowa wersja aplikacji ({0}) jest dostępna! Czy chcesz ją teraz pobrać?</value>
     <comment>Description of the version update dialog</comment>
   </data>
   <data name="Update Dialog Title" xml:space="preserve">
-    <value>New version available</value>
+    <value>Dostępna nowa wersja</value>
     <comment>Title of the version update dialog</comment>
   </data>
   <data name="Update Error" xml:space="preserve">
-    <value>Ooops! The updated version of the program cannot be downloaded! Try again and if the problem still occurs, please report it to the author!</value>
+    <value>Ups! Nie można pobrać aktualizacji! Spróbuj ponownie, a jeśli problem nadal występuje zgłoś go do autora!</value>
     <comment>Update download error warning</comment>
   </data>
   <data name="Update Info 1" xml:space="preserve">
-    <value>Your default browser should download the ZIP file with the newest program version right now.</value>
+    <value>W tym momencie twoja domyślna przeglądarka powinna pobrać paczkę ZIP z najnowszą wersją aplikacji.</value>
     <comment>Update info message, line 1</comment>
   </data>
   <data name="Update Info 2" xml:space="preserve">
-    <value>If nothing happens, copy and open the link below by yourself, then unzip it in the desired location.</value>
+    <value>Jeśli nic się nie otworzyło, skopiuj i otwórz ręcznie poniższy link, a następnie wypakuj zawartość w dowolnym miejscu.</value>
     <comment>Update info message, line 2</comment>
   </data>
   <data name="Update Info 3" xml:space="preserve">
-    <value>Press any key to close this window with an outdated program!</value>
+    <value>Naciśnij jakikolwiek przycisk, aby zamknąć aplikację!</value>
     <comment>Update info message, line 3</comment>
   </data>
   <data name="User Is Blocked Warning" xml:space="preserve">
-    <value>This user is currently blocked!</value>
+    <value>Ten użytkownik jest zablokowany!</value>
     <comment>Warning for a blocked user</comment>
   </data>
   <data name="Username Prompt" xml:space="preserve">
-    <value>Enter the username: </value>
+    <value>Wpisz nazwę użytkownika: </value>
     <comment>Prompt for a username</comment>
   </data>
   <data name="Username Prompt With Default" xml:space="preserve">
-    <value>Enter the username (default: {0}): </value>
+    <value>Wpisz nazwę użytkownika (domyślnie: {0}): </value>
     <comment>Prompt for a username with a default choice</comment>
   </data>
 </root>

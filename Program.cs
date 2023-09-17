@@ -61,23 +61,31 @@ class PresenceProgram
             return;
         }
 
-        ConsoleUtils.WriteInfo("Wybierz język. Będzie on dotyczyć tylko tekstu w konsoli. Informacje Discord Presence będą pokazane w języku polskim.");
-        ConsoleUtils.WriteInfo("Select a language. It will apply to the console text only. Discord Presence info will be shown in Polish.");
+        ConsoleUtils.WriteInfo("[PL] Wybierz język. Będzie on dotyczyć tylko tekstu w konsoli. Informacje Discord Presence będą pokazane w języku polskim.");
+        ConsoleUtils.WriteInfo("[EN] Select a language. It will apply to the console text only. Discord Presence info will be shown in Polish.");
+        ConsoleUtils.WriteInfo("[CZ] Vyber jazyk. Překlad se bude týkat pouze textu v konzoli. Discord Presence bude informace ukazovat pouze v polštině.");
         Console.WriteLine();
-        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH): ");
+        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH; 3 - ČEŠTINA): ");
         ConsoleKey key = Console.ReadKey().Key;
+
+        string languageToSet = "pl-PL";
 
         switch(key)
         {
-            case ConsoleKey.D1:
-            default:
-                ResourceUtils.SetCulture("pl-PL");
-                ConfigManager.SetValue("language", "pl-PL");
-                break;
             case ConsoleKey.D2:
-                ResourceUtils.SetCulture("en-US");
-                ConfigManager.SetValue("language", "en-US");
+                languageToSet = "en-US";
                 break;
+            case ConsoleKey.D3:
+                languageToSet = "cs-CZ";
+                break;
+        }
+
+        ResourceUtils.SetCulture(languageToSet);
+        ConfigManager.SetValue("language", languageToSet);
+
+        if(!newChoice)
+        {
+            Console.Clear();
         }
     }
 

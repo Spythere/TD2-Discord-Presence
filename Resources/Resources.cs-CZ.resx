@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Change Settings Info" xml:space="preserve">
+    <value>Pro změnu nastavení stiskni Enter, pro opuštění libovolnou jinou klávesu</value>
+    <comment>Information about changing settings</comment>
+  </data>
+  <data name="Current Signal Title" xml:space="preserve">
+    <value>návěstidlo</value>
+    <comment>Current driver signal location title</comment>
+  </data>
+  <data name="Current Track Title" xml:space="preserve">
+    <value>trať</value>
+    <comment>Current driver track location title</comment>
+  </data>
+  <data name="Dispatcher Found Info" xml:space="preserve">
+    <value>Nalezeno výpravčího! Údaje se budou aktualizovat každých {0}s!</value>
+    <comment>Information about finding the online dispatcher</comment>
+  </data>
+  <data name="Dispatcher Not Found Info" xml:space="preserve">
+    <value>Nenalezeno výpravčího online! Čekání...</value>
+    <comment>Information about not finding the online dispatcher</comment>
+  </data>
+  <data name="Driver Found Info" xml:space="preserve">
+    <value>Nalezeno strojvedoucího! Údaje se budou aktualizovat každých {0}s!</value>
+    <comment>Information about finding the online driver</comment>
+  </data>
+  <data name="Driver Not Found Info" xml:space="preserve">
+    <value>Nenalezeno strojvedoucího online! Čekání...</value>
+    <comment>Information about not finding the online driver</comment>
+  </data>
+  <data name="Incorrect Username Warning" xml:space="preserve">
+    <value>Napiš správný nick!</value>
+    <comment>Warning for an incorrect username entered</comment>
+  </data>
+  <data name="Initial Info 1" xml:space="preserve">
+    <value>Přesvědč se, že máš spuštěnou originální aplikaci Discordu a následně níže vpiš údaje. Aktivnost zmizí automaticky po zavření tohoto okna terminálu. Užijte si ho!</value>
+    <comment>Initial message, line 1</comment>
+  </data>
+  <data name="Initial Info 2" xml:space="preserve">
+    <value>Pamatuj, že je potřeba povolit ukazování statusu her v nastavení aktivnosti Discordu a také v individuálních nastaveních soukromí severu, na kterém chceš status ukázat!</value>
+    <comment>Initial message, line 2</comment>
+  </data>
+  <data name="Mode Choice Info" xml:space="preserve">
+    <value>Vyber režim (1 - výpravčí; 2 - strojvedoucí; 3 - editor; 4 - jazyk; jiné - opuštění): </value>
+    <comment>Mode choice message</comment>
+  </data>
+  <data name="Presence Loaded Info" xml:space="preserve">
+    <value>Discord Presence hotový!</value>
+    <comment>Information about successful connection with Discord</comment>
+  </data>
+  <data name="Presence Loading Info" xml:space="preserve">
+    <value>Připojování k Discordu...</value>
+    <comment>Information about connecting with Discord</comment>
+  </data>
+  <data name="RPC Dispatcher Mode Title" xml:space="preserve">
+    <value>Tryb dyżurnego</value>
+    <comment>Rich Presence title with dispatcher mode info</comment>
+  </data>
+  <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
+    <value>Dyżurny na scenerii</value>
+    <comment>Current scenery taken by the dispatcher title</comment>
+  </data>
+  <data name="RPC Driver Mode Title" xml:space="preserve">
+    <value>Tryb maszynisty</value>
+    <comment>Rich Presence title with driver mode info</comment>
+  </data>
+  <data name="RPC Driver No Timetable Title" xml:space="preserve">
+    <value>brak rozkładu jazdy</value>
+    <comment>Rich Presence title with information about no timetable</comment>
+  </data>
+  <data name="RPC Driver Timetable Button Label" xml:space="preserve">
+    <value>Szczegóły rozkładu jazdy</value>
+    <comment>Rich Presence button label with driver TT info</comment>
+  </data>
+  <data name="RPC Scenery Details Info" xml:space="preserve">
+    <value>W edytorze scenerii</value>
+    <comment>Rich Presence editing scenery details info</comment>
+  </data>
+  <data name="RPC Scenery State Info" xml:space="preserve">
+    <value>Edytuje scenerię: </value>
+    <comment>Rich Presence editing scenery state info</comment>
+  </data>
+  <data name="Scenery Editing Info" xml:space="preserve">
+    <value>Ukazování statusu editování scenérie {0}!</value>
+    <comment>Information about editing scenery</comment>
+  </data>
+  <data name="Scenery Name Prompt" xml:space="preserve">
+    <value>Vpiš název scenérie: </value>
+    <comment>Prompt for a scenery name</comment>
+  </data>
+  <data name="Searching User Info" xml:space="preserve">
+    <value>Vyhledávání informací o hráči {0}...</value>
+    <comment>Information about searching user data</comment>
+  </data>
+  <data name="Server Error Warning" xml:space="preserve">
+    <value>Při pokusu o připojení k serveru došlo k chybě!</value>
+    <comment>Warning for a server connection error</comment>
+  </data>
+  <data name="Status Code -1" xml:space="preserve">
+    <value>NIEDOSTĘPNY</value>
+    <comment>Dispatcher status info: unavailable</comment>
+  </data>
+  <data name="Status Code -2" xml:space="preserve">
+    <value>NIEWPISANY</value>
+    <comment>Dispatcher status info: not signed</comment>
+  </data>
+  <data name="Status Code 0" xml:space="preserve">
+    <value>BEZ LIMITU</value>
+    <comment>Dispatcher status info: no limit</comment>
+  </data>
+  <data name="Status Code 1" xml:space="preserve">
+    <value>ZARAZ WRACAM</value>
+    <comment>Dispatcher status info: AFK</comment>
+  </data>
+  <data name="Status Code 2" xml:space="preserve">
+    <value>KOŃCZY</value>
+    <comment>Dispatcher status info: ending</comment>
+  </data>
+  <data name="Status Code 3" xml:space="preserve">
+    <value>BRAK MIEJSCA</value>
+    <comment>Dispatcher status info: no space</comment>
+  </data>
+  <data name="Status Code 4" xml:space="preserve">
+    <value>NIEZNANY</value>
+    <comment>Dispatcher status info: unknown</comment>
+  </data>
+  <data name="Status Code Available" xml:space="preserve">
+    <value>DOSTĘPNY DO</value>
+    <comment>Dispatcher status info: available</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>TD2 Presence</value>
+    <comment>App title</comment>
+  </data>
+  <data name="Update Checking" xml:space="preserve">
+    <value>Kontrola aktualizací...</value>
+    <comment>Checking for updates</comment>
+  </data>
+  <data name="Update Dialog Desc" xml:space="preserve">
+    <value>Nová verze aplikace ({0}) je dostupná! Chceš ji teď stáhnout?</value>
+    <comment>Description of the version update dialog</comment>
+  </data>
+  <data name="Update Dialog Title" xml:space="preserve">
+    <value>Dostupná nová verze</value>
+    <comment>Title of the version update dialog</comment>
+  </data>
+  <data name="Update Error" xml:space="preserve">
+    <value>Ups! Nelze stáhnout aktualizaci! Zkuste to znovu, a pokud problém přetrvává, nahlaste ho autorovi!</value>
+    <comment>Update download error warning</comment>
+  </data>
+  <data name="Update Info 1" xml:space="preserve">
+    <value>V tomto okamžiku by měl váš výchozí prohlížeč stáhnout archív ZIP s nejnovější verzí aplikace.</value>
+    <comment>Update info message, line 1</comment>
+  </data>
+  <data name="Update Info 2" xml:space="preserve">
+    <value>Pokud se nic neotevře, zkopírujte a otevřete níže uvedený odkaz ručně a poté obsah kamkoli rozbalte.</value>
+    <comment>Update info message, line 2</comment>
+  </data>
+  <data name="Update Info 3" xml:space="preserve">
+    <value>Aplikaci zavřete stisknutím libovolné klávesy!</value>
+    <comment>Update info message, line 3</comment>
+  </data>
+  <data name="User Is Blocked Warning" xml:space="preserve">
+    <value>Tento uživatel je zablokován!</value>
+    <comment>Warning for a blocked user</comment>
+  </data>
+  <data name="Username Prompt" xml:space="preserve">
+    <value>Vpiš název uživatele: </value>
+    <comment>Prompt for a username</comment>
+  </data>
+  <data name="Username Prompt With Default" xml:space="preserve">
+    <value>Vpiš název uživatele (domyślnie: {0}): </value>
+    <comment>Prompt for a username with a default choice</comment>
+  </data>
+</root>
