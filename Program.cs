@@ -73,9 +73,11 @@ class PresenceProgram
         switch(key)
         {
             case ConsoleKey.D2:
+            case ConsoleKey.NumPad2:
                 languageToSet = "en-US";
                 break;
             case ConsoleKey.D3:
+            case ConsoleKey.NumPad3:
                 languageToSet = "cs-CZ";
                 break;
         }
@@ -100,7 +102,10 @@ class PresenceProgram
             switch (key)
             {
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
+
                     string? savedUsername = ConfigManager.ReadValue("savedUsername");
 
                     if (savedUsername != null)
@@ -130,6 +135,8 @@ class PresenceProgram
                     break;
 
                 case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
+
                     ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
                     string? sceneryName = Console.ReadLine();
 
@@ -145,6 +152,8 @@ class PresenceProgram
                     break;
 
                 case ConsoleKey.D4:
+                case ConsoleKey.NumPad4:
+
                     LanguageChoice(true);
                     Console.Clear();
                     continue;
