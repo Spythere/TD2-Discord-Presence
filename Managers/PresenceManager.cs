@@ -90,8 +90,8 @@ namespace TD2_Presence.Managers
                     ? driverData.currentStationName.Split(".sc")[0].Split(" ")[0] + " - offline"
                     : driverData.currentStationName;
 
-                string? connectionTrack = driverData.connectedTrack != "" ? $"/ {ResourceUtils.Get("Current Track Title")} {driverData.connectedTrack.Split("/")[0]}" : null;
-                string? connectionSignal = driverData.signal != "" ? $"/ {ResourceUtils.Get("Current Signal Title")} {driverData.signal.Split("/")[0]}" : null;
+                string? connectionTrack = driverData.connectedTrack != "" ? $"/ {ResourceUtils.Get("RPC Current Track Title")} {driverData.connectedTrack.Split("/")[0]}" : null;
+                string? connectionSignal = driverData.signal != "" ? $"/ {ResourceUtils.Get("RPC Current Signal Title")} {driverData.signal.Split("/")[0]}" : null;
 
                 string State;
                 string Details;

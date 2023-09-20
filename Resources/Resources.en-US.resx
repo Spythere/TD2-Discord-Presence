@@ -121,14 +121,6 @@
     <value>Press Enter to change settings or any other key to close the program</value>
     <comment>Information about changing settings</comment>
   </data>
-  <data name="Current Signal Title" xml:space="preserve">
-    <value>signal</value>
-    <comment>Current driver signal location title</comment>
-  </data>
-  <data name="Current Track Title" xml:space="preserve">
-    <value>route</value>
-    <comment>Current driver track location title</comment>
-  </data>
   <data name="Dispatcher Found Info" xml:space="preserve">
     <value>Found the dispatcher! Online data will be refreshed every {0} seconds!</value>
     <comment>Information about finding the online dispatcher</comment>
@@ -168,6 +160,14 @@
   <data name="Presence Loading Info" xml:space="preserve">
     <value>Connecting with your Discord app...</value>
     <comment>Information about connecting with Discord</comment>
+  </data>
+  <data name="RPC Current Signal Title" xml:space="preserve">
+    <value>semafor</value>
+    <comment>Current driver signal location title</comment>
+  </data>
+  <data name="RPC Current Track Title" xml:space="preserve">
+    <value>szlak</value>
+    <comment>Current driver track location title</comment>
   </data>
   <data name="RPC Dispatcher Mode Title" xml:space="preserve">
     <value>Tryb dyżurnego</value>

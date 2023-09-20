@@ -70,24 +70,6 @@ namespace TD2_Presence.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to semafor.
-        /// </summary>
-        internal static string Current_Signal_Title {
-            get {
-                return ResourceManager.GetString("Current Signal Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to szlak.
-        /// </summary>
-        internal static string Current_Track_Title {
-            get {
-                return ResourceManager.GetString("Current Track Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Znaleziono dyżurnego! Dane będą odświeżać się co {0}s!.
         /// </summary>
         internal static string Dispatcher_Found_Info {
@@ -174,6 +156,24 @@ namespace TD2_Presence.Resources {
         internal static string Presence_Loading_Info {
             get {
                 return ResourceManager.GetString("Presence Loading Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to semafor.
+        /// </summary>
+        internal static string RPC_Current_Signal_Title {
+            get {
+                return ResourceManager.GetString("RPC Current Signal Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to szlak.
+        /// </summary>
+        internal static string RPC_Current_Track_Title {
+            get {
+                return ResourceManager.GetString("RPC Current Track Title", resourceCulture);
             }
         }
         

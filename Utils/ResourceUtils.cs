@@ -1,6 +1,8 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Globalization;
 using System.Reflection;
 using System.Resources;
+using TD2_Presence.Classes;
 
 namespace TD2_Presence.Utils
 {
