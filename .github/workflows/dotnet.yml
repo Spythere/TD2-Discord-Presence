@@ -24,7 +24,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: |
-        dotnet build --configuration Release --no-restore
+        dotnet build --configuration Release --no-restore /p:EnableWindowsTargeting=true /p:AssemblyName=TD2_Presence
         dotnet publish -c Release -o ./dotnet-app -r linux-x64 --self-contained true /p:UseAppHost=true /p:AssemblyName=TD2_Presence
     - name: Test
       run: dotnet test --no-build --verbosity normal
