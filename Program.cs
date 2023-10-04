@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Reflection;
+﻿using System.Reflection;
 using TD2_Presence;
 using TD2_Presence.Managers;
 using TD2_Presence.Utils;
@@ -66,18 +65,17 @@ class PresenceProgram
         ConsoleUtils.WriteInfo("[CZ] Vyber jazyk. Překlad se bude týkat pouze textu v konzoli. Discord Presence bude informace ukazovat pouze v polštině.");
         Console.WriteLine();
         ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH; 3 - ČEŠTINA): ");
-        ConsoleKey key = Console.ReadKey().Key;
+        
+        char key = Console.ReadKey().KeyChar;
 
         string languageToSet = "pl-PL";
 
         switch(key)
         {
-            case ConsoleKey.D2:
-            case ConsoleKey.NumPad2:
+            case '2':
                 languageToSet = "en-US";
                 break;
-            case ConsoleKey.D3:
-            case ConsoleKey.NumPad3:
+            case '3':
                 languageToSet = "cs-CZ";
                 break;
         }
@@ -96,15 +94,13 @@ class PresenceProgram
         while (mainLoop)
         {
             ConsoleUtils.WritePrompt(ResourceUtils.Get("Mode Choice Info")!);
-            ConsoleKey key = Console.ReadKey().Key;
+            char key = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
             switch (key)
             {
-                case ConsoleKey.D1:
-                case ConsoleKey.NumPad1:
-                case ConsoleKey.D2:
-                case ConsoleKey.NumPad2:
+                case '1':
+                case '2':
 
                     string? savedUsername = ConfigManager.ReadValue("savedUsername");
 
@@ -130,13 +126,11 @@ class PresenceProgram
                     ConfigManager.SetValue("savedUsername", username);
 
                     PresenceManager.InitializePresence();
-                    PresenceTimer.Run(key == ConsoleKey.D1 ? PresenceMode.DISPATCHER : PresenceMode.DRIVER, username);
+                    PresenceTimer.Run(key == '1' ? PresenceMode.DISPATCHER : PresenceMode.DRIVER, username);
 
                     break;
 
-                case ConsoleKey.D3:
-                case ConsoleKey.NumPad3:
-
+                case '3':
                     ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
                     string? sceneryName = Console.ReadLine();
 
@@ -151,9 +145,7 @@ class PresenceProgram
 
                     break;
 
-                case ConsoleKey.D4:
-                case ConsoleKey.NumPad4:
-
+                case '4':
                     LanguageChoice(true);
                     Console.Clear();
                     continue;
@@ -164,14 +156,13 @@ class PresenceProgram
             }
 
             ConsoleUtils.WriteWarning(ResourceUtils.Get("Change Settings Info")!);
-            key = Console.ReadKey().Key;
+            ConsoleKey confirmKey = Console.ReadKey().Key;
 
             PresenceTimer.Stop();
             PresenceManager.ResetPresenceData();
 
-            if (key != ConsoleKey.Enter)
+            if (confirmKey != ConsoleKey.Enter)
                 mainLoop = false;
-            
         }
     }
 }
