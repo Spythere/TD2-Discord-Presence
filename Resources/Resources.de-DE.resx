@@ -162,87 +162,87 @@
     <comment>Informationen zur Verbindung mit Discord</comment>
   </data>
   <data name="RPC Current Signal Title" xml:space="preserve">
-    <value>semafor</value>
-    <comment>Current driver signal location title</comment>
+    <value>Signal</value>
+    <comment>Aktueller Name des Signals für den Lokführer</comment>
   </data>
   <data name="RPC Current Track Title" xml:space="preserve">
-    <value>szlak</value>
-    <comment>Current driver track location title</comment>
+    <value>Gleis</value>
+    <comment>Aktueller Gleisnname des Lokführers</comment>
   </data>
   <data name="RPC Dispatcher Mode Title" xml:space="preserve">
-    <value>Tryb dyżurnego</value>
-    <comment>Rich Presence title with dispatcher mode info</comment>
+    <value>Bereitschaftsmodus</value>
+    <comment>Rich Presence Titel mit Informationen zum Fahrdienstleiter-Modus</comment>
   </data>
   <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
-    <value>Dyżurny na scenerii</value>
-    <comment>Current scenery taken by the dispatcher title</comment>
+    <value>Diensthabender Beamter am Arbeitsort</value>
+    <comment>Aktuelle Szenerie, die durch den Fahrdienstleiter besetzt ist.</comment>
   </data>
   <data name="RPC Driver Mode Title" xml:space="preserve">
-    <value>Tryb maszynisty</value>
+    <value>Lokführer-Modus</value>
     <comment>Rich Presence title with driver mode info</comment>
   </data>
   <data name="RPC Driver No Timetable Title" xml:space="preserve">
-    <value>brak rozkładu jazdy</value>
+    <value>kein Fahrplan</value>
     <comment>Rich Presence title with information about no timetable</comment>
   </data>
   <data name="RPC Driver Timetable Button Label" xml:space="preserve">
-    <value>Szczegóły rozkładu jazdy</value>
+    <value>Details zum Fahrplan</value>
     <comment>Rich Presence button label with driver TT info</comment>
   </data>
   <data name="RPC Scenery Details Info" xml:space="preserve">
-    <value>W edytorze scenerii</value>
+    <value>Im Editor der Szene</value>
     <comment>Rich Presence editing scenery details info</comment>
   </data>
   <data name="RPC Scenery State Info" xml:space="preserve">
-    <value>Edytuje scenerię: </value>
+    <value>Bearbeitet die Szenerie:</value>
     <comment>Rich Presence editing scenery state info</comment>
   </data>
   <data name="Scenery Editing Info" xml:space="preserve">
-    <value>Currently displaying editing {0} scenery status!</value>
+    <value>Zeigt derzeit den Bearbeitungsstatus {0} der Szenerie an!</value>
     <comment>Information about editing scenery</comment>
   </data>
   <data name="Scenery Name Prompt" xml:space="preserve">
-    <value>Enter the scenery name: </value>
+    <value>Geben Sie den Namen der Szenerie ein:</value>
     <comment>Prompt for a scenery name</comment>
   </data>
   <data name="Searching User Info" xml:space="preserve">
-    <value>Searching for online info of {0}...</value>
+    <value>Online-Informationen zu {0} suchen...</value>
     <comment>Information about searching user data</comment>
   </data>
   <data name="Server Error Warning" xml:space="preserve">
-    <value>The error occurred while trying to connect with the server!</value>
+    <value>Beim Verbindungsaufbau mit dem Server ist ein Fehler aufgetreten!</value>
     <comment>Warning for a server connection error</comment>
   </data>
   <data name="Status Code -1" xml:space="preserve">
-    <value>NIEDOSTĘPNY</value>
+    <value>NICHT VERFÜGBAR</value>
     <comment>Dispatcher status info: unavailable</comment>
   </data>
   <data name="Status Code -2" xml:space="preserve">
-    <value>NIEWPISANY</value>
+    <value>NICHT ANGEMELDET</value>
     <comment>Dispatcher status info: not signed</comment>
   </data>
   <data name="Status Code 0" xml:space="preserve">
-    <value>BEZ LIMITU</value>
+    <value>OHNE LIMIT</value>
     <comment>Dispatcher status info: no limit</comment>
   </data>
   <data name="Status Code 1" xml:space="preserve">
-    <value>ZARAZ WRACAM</value>
+    <value>AFK</value>
     <comment>Dispatcher status info: AFK</comment>
   </data>
   <data name="Status Code 2" xml:space="preserve">
-    <value>KOŃCZY</value>
+    <value>ENDET</value>
     <comment>Dispatcher status info: ending</comment>
   </data>
   <data name="Status Code 3" xml:space="preserve">
-    <value>BRAK MIEJSCA</value>
+    <value>KEIN PLATZ</value>
     <comment>Dispatcher status info: no space</comment>
   </data>
   <data name="Status Code 4" xml:space="preserve">
-    <value>NIEZNANY</value>
+    <value>UNBEKANNT</value>
     <comment>Dispatcher status info: unknown</comment>
   </data>
   <data name="Status Code Available" xml:space="preserve">
-    <value>DOSTĘPNY DO</value>
+    <value>VERFÜGBAR BIS</value>
     <comment>Dispatcher status info: available</comment>
   </data>
   <data name="Title" xml:space="preserve">
@@ -250,43 +250,43 @@
     <comment>App title</comment>
   </data>
   <data name="Update Checking" xml:space="preserve">
-    <value>Searching for updates...</value>
+    <value>Suche nach Aktualisierungen...</value>
     <comment>Checking for updates</comment>
   </data>
   <data name="Update Dialog Desc" xml:space="preserve">
-    <value>New TD2 Presence version ({0}) is available! Do you want to download it now?</value>
+    <value>Die neue TD2 Presence Version ({0}) ist verfügbar! Möchten Sie sie jetzt herunterladen?</value>
     <comment>Description of the version update dialog</comment>
   </data>
   <data name="Update Dialog Title" xml:space="preserve">
-    <value>New version available</value>
+    <value>Neue Version verfügbar</value>
     <comment>Title of the version update dialog</comment>
   </data>
   <data name="Update Error" xml:space="preserve">
-    <value>Ooops! The updated version of the program cannot be downloaded! Try again and if the problem still occurs, please report it to the author!</value>
+    <value>Ooops! Die aktuelle Version des Programms kann nicht heruntergeladen werden! Versuchen Sie es erneut, und wenn das Problem weiterhin auftritt, melden Sie es bitte dem Autor!</value>
     <comment>Update download error warning</comment>
   </data>
   <data name="Update Info 1" xml:space="preserve">
-    <value>Your default browser should download the ZIP file with the newest program version right now.</value>
+    <value>Ihr Standardbrowser sollte die ZIP-Datei mit der neuesten Programmversion jetzt herunterladen.</value>
     <comment>Update info message, line 1</comment>
   </data>
   <data name="Update Info 2" xml:space="preserve">
-    <value>If nothing happens, copy and open the link below by yourself, then unzip it in the desired location.</value>
+    <value>Wenn nichts passiert, kopieren und öffnen Sie den unten stehenden Link selbst und entpacken Sie ihn an dem gewünschten Ort.</value>
     <comment>Update info message, line 2</comment>
   </data>
   <data name="Update Info 3" xml:space="preserve">
-    <value>Press any key to close this window with an outdated program!</value>
+    <value>Drücken Sie eine beliebige Taste, um dieses Fenster mit der veralteten Version zu schließen!</value>
     <comment>Update info message, line 3</comment>
   </data>
   <data name="User Is Blocked Warning" xml:space="preserve">
-    <value>This user is currently blocked!</value>
+    <value>Dieser Benutzer ist derzeit gesperrt!</value>
     <comment>Warning for a blocked user</comment>
   </data>
   <data name="Username Prompt" xml:space="preserve">
-    <value>Enter the username: </value>
+    <value>Geben Sie den Benutzernamen an:</value>
     <comment>Prompt for a username</comment>
   </data>
   <data name="Username Prompt With Default" xml:space="preserve">
-    <value>Enter the username (default: {0}): </value>
+    <value>Geben Sie den Benutzernamen ein (Standard: {0}):</value>
     <comment>Prompt for a username with a default choice</comment>
   </data>
 </root>

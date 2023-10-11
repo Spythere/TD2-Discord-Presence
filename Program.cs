@@ -62,9 +62,10 @@ class PresenceProgram
 
         ConsoleUtils.WriteInfo("[PL] Wybierz język. Będzie on dotyczyć tylko tekstu w konsoli. Informacje Discord Presence będą pokazane w języku polskim.");
         ConsoleUtils.WriteInfo("[EN] Select a language. It will apply to the console text only. Discord Presence info will be shown in Polish.");
+        ConsoleUtils.WriteInfo("[DE] Wählen Sie eine Sprache. Sie gilt nur für den Text in der Konsole. Die Discord-Anwesenheitsinfo wird auf Polnisch angezeigt.");
         ConsoleUtils.WriteInfo("[CZ] Vyber jazyk. Překlad se bude týkat pouze textu v konzoli. Discord Presence bude informace ukazovat pouze v polštině.");
         Console.WriteLine();
-        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH; 3 - ČEŠTINA): ");
+        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH; 3 - DEUTSCH; 4 - ČEŠTINA): ");
         
         char key = Console.ReadKey().KeyChar;
 
@@ -76,6 +77,9 @@ class PresenceProgram
                 languageToSet = "en-US";
                 break;
             case '3':
+                languageToSet = "de-DE";
+                break;
+            case '4':
                 languageToSet = "cs-CZ";
                 break;
         }
