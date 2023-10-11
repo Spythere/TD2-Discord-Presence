@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Change Settings Info" xml:space="preserve">
+    <value>Betätigen Sie die Enter Taste, um die Einstellungen zu ändern oder eine andere Taste, um das Programm zu beenden.</value>
+    <comment>Informationen zum ändern der Einstellungen</comment>
+  </data>
+  <data name="Dispatcher Found Info" xml:space="preserve">
+    <value>Der Fahrdienstleiter wurde gefunden! Die Online-Daten werden alle {0} Sekunden aktualisiert!</value>
+    <comment>Informationen zum Ermitteln des Fahrdienstleiters</comment>
+  </data>
+  <data name="Dispatcher Not Found Info" xml:space="preserve">
+    <value>Der Fahrdienstleiter wurde nicht gefunden! Warten...</value>
+    <comment>Informationen über das Nichtfinden des Fahrdienstleiters</comment>
+  </data>
+  <data name="Driver Found Info" xml:space="preserve">
+    <value>Ich habe den Lokführer gefunden! Die Online-Daten werden alle {0} Sekunden aktualisiert!</value>
+    <comment>Informationen zur Suche nach dem Lokführer</comment>
+  </data>
+  <data name="Driver Not Found Info" xml:space="preserve">
+    <value>Der Lokführer wurde nicht gefunden! Warten...</value>
+    <comment>Informationen über das Nichtauffinden des Lokführers</comment>
+  </data>
+  <data name="Incorrect Username Warning" xml:space="preserve">
+    <value>Korrekten Benutzernamen eingeben!</value>
+    <comment>Warnung bei Eingabe eines falschen Benutzernamens</comment>
+  </data>
+  <data name="Initial Info 1" xml:space="preserve">
+    <value>Stellen Sie sicher, dass Sie Discord geöffnet haben, und geben Sie dann Ihre Daten unten ein. Die Aktivitäten aus der App verschwinden automatisch nach dem Schließen dieses Terminalfensters. Viel Spaß!</value>
+    <comment>Anfangsmeldung, Zeile 1</comment>
+  </data>
+  <data name="Initial Info 2" xml:space="preserve">
+    <value>Vergessen Sie nicht, die Option "Aktivitätsstatus" in den Datenschutzeinstellungen des Servers UND in den persönlichen Einstellungen unter der Registerkarte "Aktivitätsschutz" zu aktivieren. Andernfalls wird der benutzerdefinierte Status möglicherweise nicht für andere Benutzer angezeigt!</value>
+    <comment>Anfangsmeldung, Zeile 2</comment>
+  </data>
+  <data name="Mode Choice Info" xml:space="preserve">
+    <value>Wählen Sie den Modus (1 - Fahrdienstleiter; 2 - Lokführer; 3 - Editor; 4 - Sprache; Sonstiges - Beenden): </value>
+    <comment>Meldung zur Wahl des Modus</comment>
+  </data>
+  <data name="Presence Loaded Info" xml:space="preserve">
+    <value>Die Discord-Präsenz ist bereit!</value>
+    <comment>Informationen über die erfolgreiche Verbindung mit Discord</comment>
+  </data>
+  <data name="Presence Loading Info" xml:space="preserve">
+    <value>Verbinden mit der Discord-App...</value>
+    <comment>Informationen zur Verbindung mit Discord</comment>
+  </data>
+  <data name="RPC Current Signal Title" xml:space="preserve">
+    <value>semafor</value>
+    <comment>Current driver signal location title</comment>
+  </data>
+  <data name="RPC Current Track Title" xml:space="preserve">
+    <value>szlak</value>
+    <comment>Current driver track location title</comment>
+  </data>
+  <data name="RPC Dispatcher Mode Title" xml:space="preserve">
+    <value>Tryb dyżurnego</value>
+    <comment>Rich Presence title with dispatcher mode info</comment>
+  </data>
+  <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
+    <value>Dyżurny na scenerii</value>
+    <comment>Current scenery taken by the dispatcher title</comment>
+  </data>
+  <data name="RPC Driver Mode Title" xml:space="preserve">
+    <value>Tryb maszynisty</value>
+    <comment>Rich Presence title with driver mode info</comment>
+  </data>
+  <data name="RPC Driver No Timetable Title" xml:space="preserve">
+    <value>brak rozkładu jazdy</value>
+    <comment>Rich Presence title with information about no timetable</comment>
+  </data>
+  <data name="RPC Driver Timetable Button Label" xml:space="preserve">
+    <value>Szczegóły rozkładu jazdy</value>
+    <comment>Rich Presence button label with driver TT info</comment>
+  </data>
+  <data name="RPC Scenery Details Info" xml:space="preserve">
+    <value>W edytorze scenerii</value>
+    <comment>Rich Presence editing scenery details info</comment>
+  </data>
+  <data name="RPC Scenery State Info" xml:space="preserve">
+    <value>Edytuje scenerię: </value>
+    <comment>Rich Presence editing scenery state info</comment>
+  </data>
+  <data name="Scenery Editing Info" xml:space="preserve">
+    <value>Currently displaying editing {0} scenery status!</value>
+    <comment>Information about editing scenery</comment>
+  </data>
+  <data name="Scenery Name Prompt" xml:space="preserve">
+    <value>Enter the scenery name: </value>
+    <comment>Prompt for a scenery name</comment>
+  </data>
+  <data name="Searching User Info" xml:space="preserve">
+    <value>Searching for online info of {0}...</value>
+    <comment>Information about searching user data</comment>
+  </data>
+  <data name="Server Error Warning" xml:space="preserve">
+    <value>The error occurred while trying to connect with the server!</value>
+    <comment>Warning for a server connection error</comment>
+  </data>
+  <data name="Status Code -1" xml:space="preserve">
+    <value>NIEDOSTĘPNY</value>
+    <comment>Dispatcher status info: unavailable</comment>
+  </data>
+  <data name="Status Code -2" xml:space="preserve">
+    <value>NIEWPISANY</value>
+    <comment>Dispatcher status info: not signed</comment>
+  </data>
+  <data name="Status Code 0" xml:space="preserve">
+    <value>BEZ LIMITU</value>
+    <comment>Dispatcher status info: no limit</comment>
+  </data>
+  <data name="Status Code 1" xml:space="preserve">
+    <value>ZARAZ WRACAM</value>
+    <comment>Dispatcher status info: AFK</comment>
+  </data>
+  <data name="Status Code 2" xml:space="preserve">
+    <value>KOŃCZY</value>
+    <comment>Dispatcher status info: ending</comment>
+  </data>
+  <data name="Status Code 3" xml:space="preserve">
+    <value>BRAK MIEJSCA</value>
+    <comment>Dispatcher status info: no space</comment>
+  </data>
+  <data name="Status Code 4" xml:space="preserve">
+    <value>NIEZNANY</value>
+    <comment>Dispatcher status info: unknown</comment>
+  </data>
+  <data name="Status Code Available" xml:space="preserve">
+    <value>DOSTĘPNY DO</value>
+    <comment>Dispatcher status info: available</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>TD2 Presence</value>
+    <comment>App title</comment>
+  </data>
+  <data name="Update Checking" xml:space="preserve">
+    <value>Searching for updates...</value>
+    <comment>Checking for updates</comment>
+  </data>
+  <data name="Update Dialog Desc" xml:space="preserve">
+    <value>New TD2 Presence version ({0}) is available! Do you want to download it now?</value>
+    <comment>Description of the version update dialog</comment>
+  </data>
+  <data name="Update Dialog Title" xml:space="preserve">
+    <value>New version available</value>
+    <comment>Title of the version update dialog</comment>
+  </data>
+  <data name="Update Error" xml:space="preserve">
+    <value>Ooops! The updated version of the program cannot be downloaded! Try again and if the problem still occurs, please report it to the author!</value>
+    <comment>Update download error warning</comment>
+  </data>
+  <data name="Update Info 1" xml:space="preserve">
+    <value>Your default browser should download the ZIP file with the newest program version right now.</value>
+    <comment>Update info message, line 1</comment>
+  </data>
+  <data name="Update Info 2" xml:space="preserve">
+    <value>If nothing happens, copy and open the link below by yourself, then unzip it in the desired location.</value>
+    <comment>Update info message, line 2</comment>
+  </data>
+  <data name="Update Info 3" xml:space="preserve">
+    <value>Press any key to close this window with an outdated program!</value>
+    <comment>Update info message, line 3</comment>
+  </data>
+  <data name="User Is Blocked Warning" xml:space="preserve">
+    <value>This user is currently blocked!</value>
+    <comment>Warning for a blocked user</comment>
+  </data>
+  <data name="Username Prompt" xml:space="preserve">
+    <value>Enter the username: </value>
+    <comment>Prompt for a username</comment>
+  </data>
+  <data name="Username Prompt With Default" xml:space="preserve">
+    <value>Enter the username (default: {0}): </value>
+    <comment>Prompt for a username with a default choice</comment>
+  </data>
+</root>
