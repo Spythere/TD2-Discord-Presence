@@ -41,7 +41,7 @@ class PresenceProgram
         Console.Clear();
 
         /* Initial messages */
-        Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere ====");
+        Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere, modded by Bravura Lion ====");
         ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 1")!);
         ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 2")!);
         Console.WriteLine("==========================================");
