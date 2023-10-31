@@ -174,7 +174,7 @@
     <comment>Rich Presence Titel mit Informationen zum Fahrdienstleiter-Modus</comment>
   </data>
   <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
-    <value>Diensthabender Beamter am Arbeitsort</value>
+    <value>Fahrdienstleiter in:</value>
     <comment>Aktuelle Szenerie, die durch den Fahrdienstleiter besetzt ist.</comment>
   </data>
   <data name="RPC Driver Mode Title" xml:space="preserve">
