@@ -25,8 +25,8 @@ jobs:
     - name: Build
       run: |
         dotnet build --configuration Release --no-restore /p:AssemblyName=TD2_Presence
-        dotnet publish -c Release -o ./dotnet-app -r linux-x64 --self-contained true /p:UseAppHost=true /p:AssemblyName=TD2_Presence
-        zip TD2_Presence ./dotnet-app/TD2_Presence
+        dotnet publish -c Release -o ./dotnet-app -r win-x64 --self-contained true /p:UseAppHost=true /p:AssemblyName=TD2_Presence
+        zip TD2_Presence ./dotnet-app/TD2_Presence.exe
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Create Release
@@ -48,6 +48,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dotnet-app/TD2_Presence.zip
+        asset_path: ./TD2_Presence.zip
         asset_name: TD2_Presence-v${{ github.ref }}.zip
         asset_content_type: application/zip
