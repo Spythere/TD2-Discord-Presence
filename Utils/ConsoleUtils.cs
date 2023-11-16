@@ -26,5 +26,10 @@
         {
             Console.WriteLine($"<!> {s}");
         }
+
+        public static void ResetLine()
+        {
+            Console.WriteLine(new string(' ', Console.WindowWidth));
+        }
     }
 }

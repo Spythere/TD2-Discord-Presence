@@ -117,8 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App Language Change Info" xml:space="preserve">
+    <value>Wybierz główny język aplikacji: </value>
+    <comment>App language change prompt</comment>
+  </data>
   <data name="Change Settings Info" xml:space="preserve">
-    <value>Aby zmienić ustawienia naciśnij Enter, aby wyjść dowolny inny klawisz</value>
+    <value>Aby zmienić ustawienia naciśnij Enter lub dowolny inny klawisz, żeby wyjść!</value>
     <comment>Information about changing settings</comment>
   </data>
   <data name="Dispatcher Found Info" xml:space="preserve">
@@ -149,9 +153,41 @@
     <value>Pamiętaj, aby włączyć wyświetlanie statusu rozgrywki w ustawieniach aktywności Discorda ORAZ indywidualnych ustawieniach prywatności serwera, na którym chcesz je pokazać!</value>
     <comment>Initial message, line 2</comment>
   </data>
+  <data name="Language Name" xml:space="preserve">
+    <value>polski</value>
+    <comment>Language name</comment>
+  </data>
+  <data name="Mode Choice Dispatcher" xml:space="preserve">
+    <value>DYŻURNY</value>
+    <comment>Dispatcher mode choice info</comment>
+  </data>
+  <data name="Mode Choice Driver" xml:space="preserve">
+    <value>MASZYNISTA</value>
+    <comment>Driver mode choice info</comment>
+  </data>
+  <data name="Mode Choice Editor" xml:space="preserve">
+    <value>EDYTOR</value>
+    <comment>Editor mode choice info</comment>
+  </data>
+  <data name="Mode Choice Exit" xml:space="preserve">
+    <value>WYJŚCIE</value>
+    <comment>Exit choice info</comment>
+  </data>
   <data name="Mode Choice Info" xml:space="preserve">
-    <value>Wybierz tryb (1 - dyżurny; 2 - maszynista; 3 - edytor; 4 - język; inne - wyjście): </value>
+    <value>Wybierz tryb</value>
     <comment>Mode choice message</comment>
+  </data>
+  <data name="Mode Choice Language" xml:space="preserve">
+    <value>JĘZYK APLIKACJI</value>
+    <comment>Language mode choice info</comment>
+  </data>
+  <data name="Mode Choice RPC Language" xml:space="preserve">
+    <value>JĘZYK PRESENCE</value>
+    <comment>RPC language mode choice info</comment>
+  </data>
+  <data name="Presence Language Change Info" xml:space="preserve">
+    <value>Wybierz język statusu Discord Presence: </value>
+    <comment>Discord presence language prompt</comment>
   </data>
   <data name="Presence Loaded Info" xml:space="preserve">
     <value>Discord Presence gotowy!</value>
@@ -214,12 +250,12 @@
     <comment>Warning for a server connection error</comment>
   </data>
   <data name="Status Code -1" xml:space="preserve">
-    <value>NIEDOSTĘPNY</value>
-    <comment>Dispatcher status info: unavailable</comment>
+    <value>NIEZNANY</value>
+    <comment>Dispatcher status info: unknown</comment>
   </data>
   <data name="Status Code -2" xml:space="preserve">
-    <value>NIEWPISANY</value>
-    <comment>Dispatcher status info: not signed</comment>
+    <value>ZŁY HASH</value>
+    <comment>Dispatcher status info: invalid hash</comment>
   </data>
   <data name="Status Code 0" xml:space="preserve">
     <value>BEZ LIMITU</value>
@@ -238,8 +274,12 @@
     <comment>Dispatcher status info: no space</comment>
   </data>
   <data name="Status Code 4" xml:space="preserve">
-    <value>NIEZNANY</value>
-    <comment>Dispatcher status info: unknown</comment>
+    <value>NIEDOSTĘPNY</value>
+    <comment>Dispatcher status info: unavailable</comment>
+  </data>
+  <data name="Status Code 5" xml:space="preserve">
+    <value>NIEZALOGOWANY</value>
+    <comment>Dispatcher status info: not logged in</comment>
   </data>
   <data name="Status Code Available" xml:space="preserve">
     <value>DOSTĘPNY DO</value>

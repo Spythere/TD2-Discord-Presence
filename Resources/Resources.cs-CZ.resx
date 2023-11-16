@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App Language Change Info" xml:space="preserve">
+    <value>Vyber hlavní jazyk: </value>
+    <comment>App language change prompt</comment>
+  </data>
   <data name="Change Settings Info" xml:space="preserve">
     <value>Pro změnu nastavení stiskni Enter, pro opuštění libovolnou jinou klávesu</value>
     <comment>Information about changing settings</comment>
@@ -149,9 +153,41 @@
     <value>Pamatuj, že je potřeba povolit ukazování statusu her v nastavení aktivnosti Discordu a také v individuálních nastaveních soukromí severu, na kterém chceš status ukázat!</value>
     <comment>Initial message, line 2</comment>
   </data>
+  <data name="Language Name" xml:space="preserve">
+    <value>čeština</value>
+    <comment>Language name</comment>
+  </data>
+  <data name="Mode Choice Dispatcher" xml:space="preserve">
+    <value>VÝPRAVČÍ</value>
+    <comment>Dispatcher mode choice info</comment>
+  </data>
+  <data name="Mode Choice Driver" xml:space="preserve">
+    <value>STROJVEDOUCÍ</value>
+    <comment>Driver mode choice info</comment>
+  </data>
+  <data name="Mode Choice Editor" xml:space="preserve">
+    <value>EDITOR</value>
+    <comment>Editor mode choice info</comment>
+  </data>
+  <data name="Mode Choice Exit" xml:space="preserve">
+    <value>OPUŠTĚNÍ</value>
+    <comment>Exit choice info</comment>
+  </data>
   <data name="Mode Choice Info" xml:space="preserve">
-    <value>Vyber režim (1 - výpravčí; 2 - strojvedoucí; 3 - editor; 4 - jazyk; jiné - opuštění): </value>
+    <value>Vyber režim: </value>
     <comment>Mode choice message</comment>
+  </data>
+  <data name="Mode Choice Language" xml:space="preserve">
+    <value>JAZYK APLIKACE</value>
+    <comment>Language mode choice info</comment>
+  </data>
+  <data name="Mode Choice RPC Language" xml:space="preserve">
+    <value>JAZYK PRESENCE</value>
+    <comment>RPC language mode choice info</comment>
+  </data>
+  <data name="Presence Language Change Info" xml:space="preserve">
+    <value>Vyber jazyk statusu Discord Presence: </value>
+    <comment>Discord presence language prompt</comment>
   </data>
   <data name="Presence Loaded Info" xml:space="preserve">
     <value>Discord Presence hotový!</value>
@@ -162,39 +198,39 @@
     <comment>Information about connecting with Discord</comment>
   </data>
   <data name="RPC Current Signal Title" xml:space="preserve">
-    <value>semafor</value>
+    <value>návěstidlo</value>
     <comment>Current driver signal location title</comment>
   </data>
   <data name="RPC Current Track Title" xml:space="preserve">
-    <value>szlak</value>
+    <value>trať</value>
     <comment>Current driver track location title</comment>
   </data>
   <data name="RPC Dispatcher Mode Title" xml:space="preserve">
-    <value>Tryb dyżurnego</value>
+    <value>Režim výpravčího</value>
     <comment>Rich Presence title with dispatcher mode info</comment>
   </data>
   <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
-    <value>Dyżurny na scenerii</value>
+    <value>Výpravčí na scenérii</value>
     <comment>Current scenery taken by the dispatcher title</comment>
   </data>
   <data name="RPC Driver Mode Title" xml:space="preserve">
-    <value>Tryb maszynisty</value>
+    <value>Režim strojvedoucího</value>
     <comment>Rich Presence title with driver mode info</comment>
   </data>
   <data name="RPC Driver No Timetable Title" xml:space="preserve">
-    <value>brak rozkładu jazdy</value>
+    <value>bez jízdního řádu</value>
     <comment>Rich Presence title with information about no timetable</comment>
   </data>
   <data name="RPC Driver Timetable Button Label" xml:space="preserve">
-    <value>Szczegóły rozkładu jazdy</value>
+    <value>Detaily jízdního řádu</value>
     <comment>Rich Presence button label with driver TT info</comment>
   </data>
   <data name="RPC Scenery Details Info" xml:space="preserve">
-    <value>W edytorze scenerii</value>
+    <value>V editoru scenérie</value>
     <comment>Rich Presence editing scenery details info</comment>
   </data>
   <data name="RPC Scenery State Info" xml:space="preserve">
-    <value>Edytuje scenerię: </value>
+    <value>Edituje scenérii: </value>
     <comment>Rich Presence editing scenery state info</comment>
   </data>
   <data name="Scenery Editing Info" xml:space="preserve">
@@ -214,35 +250,39 @@
     <comment>Warning for a server connection error</comment>
   </data>
   <data name="Status Code -1" xml:space="preserve">
-    <value>NIEDOSTĘPNY</value>
-    <comment>Dispatcher status info: unavailable</comment>
+    <value>NEZNÁMÝ</value>
+    <comment>Dispatcher status info: unknown</comment>
   </data>
   <data name="Status Code -2" xml:space="preserve">
-    <value>NIEWPISANY</value>
-    <comment>Dispatcher status info: not signed</comment>
+    <value>ŠPATNÝ HASH</value>
+    <comment>Dispatcher status info: invalid hash</comment>
   </data>
   <data name="Status Code 0" xml:space="preserve">
     <value>BEZ LIMITU</value>
     <comment>Dispatcher status info: no limit</comment>
   </data>
   <data name="Status Code 1" xml:space="preserve">
-    <value>ZARAZ WRACAM</value>
+    <value>AFK</value>
     <comment>Dispatcher status info: AFK</comment>
   </data>
   <data name="Status Code 2" xml:space="preserve">
-    <value>KOŃCZY</value>
+    <value>KONČÍ</value>
     <comment>Dispatcher status info: ending</comment>
   </data>
   <data name="Status Code 3" xml:space="preserve">
-    <value>BRAK MIEJSCA</value>
+    <value>NEDOSTATEK MÍSTA</value>
     <comment>Dispatcher status info: no space</comment>
   </data>
   <data name="Status Code 4" xml:space="preserve">
-    <value>NIEZNANY</value>
-    <comment>Dispatcher status info: unknown</comment>
+    <value>NEDOSTUPNÝ</value>
+    <comment>Dispatcher status info: unavailable</comment>
+  </data>
+  <data name="Status Code 5" xml:space="preserve">
+    <value>NEPŘIHLÁŠEN</value>
+    <comment>Dispatcher status info: not logged in</comment>
   </data>
   <data name="Status Code Available" xml:space="preserve">
-    <value>DOSTĘPNY DO</value>
+    <value>DOSTUPNÝ DO</value>
     <comment>Dispatcher status info: available</comment>
   </data>
   <data name="Title" xml:space="preserve">

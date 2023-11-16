@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App Language Change Info" xml:space="preserve">
+    <value>Choose the app language: </value>
+    <comment>App language change prompt</comment>
+  </data>
   <data name="Change Settings Info" xml:space="preserve">
     <value>Press Enter to change settings or any other key to close the program</value>
     <comment>Information about changing settings</comment>
@@ -149,9 +153,41 @@
     <value>Remember to turn the "Activity Status" option on in server's Privacy Settings AND personal settings under the "Activity Privacy" tab. Otherwise the custom status might not be displayed to other users!</value>
     <comment>Initial message, line 2</comment>
   </data>
+  <data name="Language Name" xml:space="preserve">
+    <value>English</value>
+    <comment>Language name</comment>
+  </data>
+  <data name="Mode Choice Dispatcher" xml:space="preserve">
+    <value>DISPATCHER</value>
+    <comment>Dispatcher mode choice info</comment>
+  </data>
+  <data name="Mode Choice Driver" xml:space="preserve">
+    <value>DRIVER</value>
+    <comment>Driver mode choice info</comment>
+  </data>
+  <data name="Mode Choice Editor" xml:space="preserve">
+    <value>EDITOR</value>
+    <comment>Editor mode choice info</comment>
+  </data>
+  <data name="Mode Choice Exit" xml:space="preserve">
+    <value>EXIT</value>
+    <comment>Exit choice info</comment>
+  </data>
   <data name="Mode Choice Info" xml:space="preserve">
-    <value>Choose the mode (1 - dispatcher; 2 - driver; 3 - editor; 4 - language; other - exit): </value>
+    <value>Choose the mode: </value>
     <comment>Mode choice message</comment>
+  </data>
+  <data name="Mode Choice Language" xml:space="preserve">
+    <value>APP LANGUAGE</value>
+    <comment>Language mode choice info</comment>
+  </data>
+  <data name="Mode Choice RPC Language" xml:space="preserve">
+    <value>PRESENCE LANGUAGE</value>
+    <comment>RPC language mode choice info</comment>
+  </data>
+  <data name="Presence Language Change Info" xml:space="preserve">
+    <value>Choose the Discord presence status language: </value>
+    <comment>Discord presence language prompt</comment>
   </data>
   <data name="Presence Loaded Info" xml:space="preserve">
     <value>Discord Presence is ready!</value>
@@ -162,39 +198,39 @@
     <comment>Information about connecting with Discord</comment>
   </data>
   <data name="RPC Current Signal Title" xml:space="preserve">
-    <value>semafor</value>
+    <value>signal</value>
     <comment>Current driver signal location title</comment>
   </data>
   <data name="RPC Current Track Title" xml:space="preserve">
-    <value>szlak</value>
+    <value>connection</value>
     <comment>Current driver track location title</comment>
   </data>
   <data name="RPC Dispatcher Mode Title" xml:space="preserve">
-    <value>Tryb dyżurnego</value>
+    <value>Dispatcher mode</value>
     <comment>Rich Presence title with dispatcher mode info</comment>
   </data>
   <data name="RPC Dispatcher Scenery Title" xml:space="preserve">
-    <value>Dyżurny na scenerii</value>
+    <value>Dispatcher at</value>
     <comment>Current scenery taken by the dispatcher title</comment>
   </data>
   <data name="RPC Driver Mode Title" xml:space="preserve">
-    <value>Tryb maszynisty</value>
+    <value>Driver mode</value>
     <comment>Rich Presence title with driver mode info</comment>
   </data>
   <data name="RPC Driver No Timetable Title" xml:space="preserve">
-    <value>brak rozkładu jazdy</value>
+    <value>no timetable</value>
     <comment>Rich Presence title with information about no timetable</comment>
   </data>
   <data name="RPC Driver Timetable Button Label" xml:space="preserve">
-    <value>Szczegóły rozkładu jazdy</value>
+    <value>Timetable details</value>
     <comment>Rich Presence button label with driver TT info</comment>
   </data>
   <data name="RPC Scenery Details Info" xml:space="preserve">
-    <value>W edytorze scenerii</value>
+    <value>In the scenery editor</value>
     <comment>Rich Presence editing scenery details info</comment>
   </data>
   <data name="RPC Scenery State Info" xml:space="preserve">
-    <value>Edytuje scenerię: </value>
+    <value>Editing scenery: </value>
     <comment>Rich Presence editing scenery state info</comment>
   </data>
   <data name="Scenery Editing Info" xml:space="preserve">
@@ -214,35 +250,39 @@
     <comment>Warning for a server connection error</comment>
   </data>
   <data name="Status Code -1" xml:space="preserve">
-    <value>NIEDOSTĘPNY</value>
-    <comment>Dispatcher status info: unavailable</comment>
+    <value>UNKNOWN</value>
+    <comment>Dispatcher status info: unknown</comment>
   </data>
   <data name="Status Code -2" xml:space="preserve">
-    <value>NIEWPISANY</value>
-    <comment>Dispatcher status info: not signed</comment>
+    <value>INVALID HASH</value>
+    <comment>Dispatcher status info: invalid hash</comment>
   </data>
   <data name="Status Code 0" xml:space="preserve">
-    <value>BEZ LIMITU</value>
+    <value>NO LIMIT</value>
     <comment>Dispatcher status info: no limit</comment>
   </data>
   <data name="Status Code 1" xml:space="preserve">
-    <value>ZARAZ WRACAM</value>
+    <value>AFK</value>
     <comment>Dispatcher status info: AFK</comment>
   </data>
   <data name="Status Code 2" xml:space="preserve">
-    <value>KOŃCZY</value>
+    <value>ENDING</value>
     <comment>Dispatcher status info: ending</comment>
   </data>
   <data name="Status Code 3" xml:space="preserve">
-    <value>BRAK MIEJSCA</value>
+    <value>NO SPACE</value>
     <comment>Dispatcher status info: no space</comment>
   </data>
   <data name="Status Code 4" xml:space="preserve">
-    <value>NIEZNANY</value>
-    <comment>Dispatcher status info: unknown</comment>
+    <value>UNAVAILABLE</value>
+    <comment>Dispatcher status info: unavailable</comment>
+  </data>
+  <data name="Status Code 5" xml:space="preserve">
+    <value>NOT LOGGED IN</value>
+    <comment>Dispatcher status info: not logged in</comment>
   </data>
   <data name="Status Code Available" xml:space="preserve">
-    <value>DOSTĘPNY DO</value>
+    <value>UNTIL</value>
     <comment>Dispatcher status info: available</comment>
   </data>
   <data name="Title" xml:space="preserve">

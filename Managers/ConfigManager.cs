@@ -36,7 +36,9 @@ namespace TD2_Presence.Managers
             if (!File.Exists(configPath)) return null;
 
             string json = File.ReadAllText(configPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);
+            dynamic? jsonObj = JsonConvert.DeserializeObject(json);
+
+            if (jsonObj == null) return null;
 
             return jsonObj[key];
         }

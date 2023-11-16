@@ -2,6 +2,7 @@
 using System.Net.Http.Json;
 using System.Reflection;
 using TD2_Presence.Classes;
+using Timer = System.Timers.Timer;
 
 namespace TD2_Presence.Utils
 {
@@ -10,6 +11,7 @@ namespace TD2_Presence.Utils
         static readonly HttpClient client = new HttpClient() {
             Timeout = TimeSpan.FromSeconds(5),
         };
+
 
         public async static Task<bool> CheckForUpdates()
         {
@@ -34,27 +36,36 @@ namespace TD2_Presence.Utils
                 Version? currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
                 Version latestVersion = new Version(data.TagName);
 
-                Console.WriteLine(latestVersion.ToString());
-
                 if (latestVersion > currentVersion)
                 {
-                    DialogResult dialogResult = MessageBox.Show(string.Format(ResourceUtils.Get("Update Dialog Desc"), latestVersion), ResourceUtils.Get("Update Dialog Title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    
-                    if (dialogResult == DialogResult.OK)
+                    Console.Clear();
+                    ConsoleUtils.WriteWarning(string.Format(ResourceUtils.Get("Update Dialog Desc"), latestVersion));
+
+                    Menu menu = new Menu("", new string[]{ "OK!", "Cancel" }, Menu.ExitModeEnum.NONE);
+
+                 // DialogResult dialogResult = MessageBox.Show( ResourceUtils.Get("Update Dialog Title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    int selectedIndex = menu.Run();
+
+                    if(selectedIndex == 0)
                     {
                         string downloadUrl = data.Assets[0].BrowserDownloadUrl;
 
                         Console.Clear();
                         ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 1"));
                         ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 2"));
+                        Console.WriteLine();
                         Console.WriteLine(downloadUrl);
 
                         Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
+
+                        Console.WriteLine();
                         ConsoleUtils.WriteWarning(ResourceUtils.Get("Update Info 3"));
 
-                        Console.ReadKey();
+                        Menu menuExit = new Menu("", new string[] { "OK!" }, Menu.ExitModeEnum.NONE);
+                        menuExit.Run();
+
                         System.Environment.Exit(0);
-                    }
+                    }       
                 }
             }
             catch (Exception)

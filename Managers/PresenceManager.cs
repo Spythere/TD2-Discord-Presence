@@ -58,8 +58,8 @@ namespace TD2_Presence.Managers
 
             rpcClient?.SetPresence(new RichPresence()
             {
-                Details = ResourceUtils.Get("RPC Scenery Details Info"),
-                State = $"{ResourceUtils.Get("RPC Scenery State Info")}{sceneryName}",
+                Details = ResourceUtils.GetRPC("RPC Scenery Details Info"),
+                State = $"{ResourceUtils.GetRPC("RPC Scenery State Info")}{sceneryName}",
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage",
@@ -83,6 +83,8 @@ namespace TD2_Presence.Managers
                     timetableFound = false;
 
                     ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Driver Found Info"), refreshSeconds.ToString()));
+                    ConsoleUtils.WriteSuccess(ResourceUtils.Get("Change Settings Info"));
+                    
                     startTime = DateTime.UtcNow;
                 }
 
@@ -90,8 +92,8 @@ namespace TD2_Presence.Managers
                     ? driverData.currentStationName.Split(".sc")[0].Split(" ")[0] + " - offline"
                     : driverData.currentStationName;
 
-                string? connectionTrack = driverData.connectedTrack != "" ? $"/ {ResourceUtils.Get("RPC Current Track Title")} {driverData.connectedTrack.Split("/")[0]}" : null;
-                string? connectionSignal = driverData.signal != "" ? $"/ {ResourceUtils.Get("RPC Current Signal Title")} {driverData.signal.Split("/")[0]}" : null;
+                string? connectionTrack = driverData.connectedTrack != "" ? $"/ {ResourceUtils.GetRPC("RPC Current Track Title")} {driverData.connectedTrack.Split("/")[0]}" : null;
+                string? connectionSignal = driverData.signal != "" ? $"/ {ResourceUtils.GetRPC("RPC Current Signal Title")} {driverData.signal.Split("/")[0]}" : null;
 
                 string State;
                 string Details;
@@ -115,7 +117,7 @@ namespace TD2_Presence.Managers
 
                     DiscordRPC.Button rjButton = new DiscordRPC.Button()
                     {
-                        Label = ResourceUtils.Get("RPC Driver Timetable Button Label"),
+                        Label = ResourceUtils.GetRPC("RPC Driver Timetable Button Label"),
                         Url = $"https://stacjownik-td2.web.app/trains?trainId={driverData.driverName + driverData.trainNo.ToString()}"
                     };
 
@@ -127,7 +129,7 @@ namespace TD2_Presence.Managers
                         {
                             LargeImageKey = "largeimage",
                             SmallImageKey = "driver",
-                            SmallImageText = ResourceUtils.Get("RPC Driver Mode Title")
+                            SmallImageText = ResourceUtils.GetRPC("RPC Driver Mode Title")
                         },
                         Timestamps = new Timestamps()
                         {
@@ -147,7 +149,7 @@ namespace TD2_Presence.Managers
                         startTime = DateTime.UtcNow;
                     }
 
-                    Details = $"{driverData.trainNo} - {ResourceUtils.Get("RPC Driver No Timetable Title")}";
+                    Details = $"{driverData.trainNo} - {ResourceUtils.GetRPC("RPC Driver No Timetable Title")}";
                     State = $"{currentScenery} {connectionSignal} ({driverData.speed} km/h)";
 
                     rpcClient?.SetPresence(new RichPresence()
@@ -158,7 +160,7 @@ namespace TD2_Presence.Managers
                         {
                             LargeImageKey = "largeimage",
                             SmallImageKey = "driver",
-                            SmallImageText = ResourceUtils.Get("RPC Driver Mode Title")
+                            SmallImageText = ResourceUtils.GetRPC("RPC Driver Mode Title")
                         },
                         Timestamps = new Timestamps()
                         {
@@ -197,6 +199,8 @@ namespace TD2_Presence.Managers
             if (userFound == false)
             {
                 ConsoleUtils.WriteSuccess(string.Format(ResourceUtils.Get("Dispatcher Found Info"), refreshSeconds.ToString()));
+                ConsoleUtils.WriteSuccess(ResourceUtils.Get("Change Settings Info"));
+
                 userFound = true;
                 startTime = DateTime.UtcNow;
             }
@@ -206,13 +210,13 @@ namespace TD2_Presence.Managers
 
             RichPresence rp = new RichPresence()
             {
-                Details = $"{ResourceUtils.Get("RPC Dispatcher Scenery Title")} {currentData.stationName}",
-                State = $"Status: {DispatcherUtils.getDispatcherStatus(currentData.dispatcherStatus)}",
+                Details = $"{ResourceUtils.GetRPC("RPC Dispatcher Scenery Title")} {currentData.stationName}",
+                State = $"{DispatcherUtils.getDispatcherStatus(currentData.dispatcherStatus)}",
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage",
                     SmallImageKey = "dispatcher",
-                    SmallImageText = ResourceUtils.Get("RPC Dispatcher Mode Title")
+                    SmallImageText = ResourceUtils.GetRPC("RPC Dispatcher Mode Title")
                 },
                 Timestamps = new Timestamps()
                 {

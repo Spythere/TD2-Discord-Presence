@@ -12,7 +12,8 @@ class PresenceProgram
     Version? currentVersion;
     bool mainLoop = true;
 
-    public PresenceProgram() { 
+    public PresenceProgram()
+    {
         currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
     }
 
@@ -33,7 +34,8 @@ class PresenceProgram
         ConfigManager.SetupConfig();
 
         /* Language choice */
-        LanguageChoice();
+        LanguageManager.RunLanguageChoice();
+        LanguageManager.RunRPCLanguageChoice();
 
         /* Update checking */
         Console.WriteLine(ResourceUtils.Get("Update Checking"));
@@ -41,130 +43,156 @@ class PresenceProgram
         Console.Clear();
 
         /* Initial messages */
-        Console.WriteLine($"==== TD2 Discord Presence (v{currentVersion}) by Spythere ====");
-        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 1")!);
-        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 2")!);
-        Console.WriteLine("==========================================");
-        Console.WriteLine();
+        RunInitMessage();
         
+
         /* Program main loop */
-        runMainLoop();
+        // runMainLoop();
+
+        RunMainMenu();
+
+        PresenceTimer.Stop();
+        PresenceManager.ResetPresenceData();
+
+        System.Environment.Exit(0);
+
     }
 
-    private void LanguageChoice(bool newChoice = false)
+    private void RunInitMessage()
     {
-        string? language = ConfigManager.ReadValue("language");
-        if (language != null && !newChoice)
-        {
-            ResourceUtils.SetCulture(language);
+        string? initInfoShown = ConfigManager.ReadValue("initInfo");
+
+        if (initInfoShown != null)
             return;
-        }
-
-        ConsoleUtils.WriteInfo("[PL] Wybierz język. Będzie on dotyczyć tylko tekstu w konsoli. Informacje Discord Presence będą pokazane w języku polskim.");
-        ConsoleUtils.WriteInfo("[EN] Select a language. It will apply to the console text only. Discord Presence info will be shown in Polish.");
-        ConsoleUtils.WriteInfo("[CZ] Vyber jazyk. Překlad se bude týkat pouze textu v konzoli. Discord Presence bude informace ukazovat pouze v polštině.");
-        Console.WriteLine();
-        ConsoleUtils.WritePrompt("Język / Language (1 - POLSKI; 2 - ENGLISH; 3 - ČEŠTINA): ");
         
-        char key = Console.ReadKey().KeyChar;
+        RenderLogo();
 
-        string languageToSet = "pl-PL";
+        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 1")!);
+        Console.WriteLine();
+        ConsoleUtils.WriteWarning(ResourceUtils.Get("Initial Info 2")!);
 
-        switch(key)
-        {
-            case '2':
-                languageToSet = "en-US";
-                break;
-            case '3':
-                languageToSet = "cs-CZ";
-                break;
-        }
+        string[] options = { "OK!" };
+        Menu menu = new Menu("", options, Menu.ExitModeEnum.NONE);
+        menu.Run();
 
-        ResourceUtils.SetCulture(languageToSet);
-        ConfigManager.SetValue("language", languageToSet);
+        ConfigManager.SetValue("initInfo", "1");
 
-        if(!newChoice)
-        {
-            Console.Clear();
-        }
+        Console.Clear();
     }
 
-    private void runMainLoop()
+    private void RenderLogo()
     {
-        while (mainLoop)
+        Console.Write("  _____ ____ ____    ____                                    \r\n |_   _|  _ \\___ \\  |  _ \\ _ __ ___  ___  ___ _ __   ___ ___ \r\n   | | | | | |__) | | |_) | '__/ _ \\/ __|/ _ \\ '_ \\ / __/ _ \\\r\n   | | | |_| / __/  |  __/| | |  __/\\__ \\  __/ | | | (_|  __/\r\n   |_| |____/_____| |_|   |_|  \\___||___/\\___|_| |_|\\___\\___|\r\n                                         ");
+        Console.WriteLine($"v{currentVersion} by Spythere\n\n");
+    }
+
+    private void RunMainMenu()
+    {     
+        Menu menu = new Menu(GetLocaleMenuTitle(), GetLocaleMenuOptions(), Menu.ExitModeEnum.APP);
+
+        do
         {
-            ConsoleUtils.WritePrompt(ResourceUtils.Get("Mode Choice Info")!);
-            char key = Console.ReadKey().KeyChar;
-            Console.WriteLine();
+            RenderLogo();
 
-            switch (key)
+            int selectedIndex = menu.Run();
+
+            switch (selectedIndex)
             {
-                case '1':
-                case '2':
+                case 0:
+                case 1:
+                    RunDispatcherOrDriverSelection(selectedIndex);
+                    break;
+                case 2:
+                    RunEditorSelection();
+                    break;
+                case 3:
+                    LanguageManager.RunLanguageChoice(true);
 
-                    string? savedUsername = ConfigManager.ReadValue("savedUsername");
-
-                    if (savedUsername != null)
-                        ConsoleUtils.WritePrompt(string.Format(ResourceUtils.Get("Username Prompt With Default")!, savedUsername));
-                    else
-                        ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
-
-                    string? username = Console.ReadLine();
-
-                    if (string.IsNullOrEmpty(savedUsername))
-                    {
-                        while (string.IsNullOrWhiteSpace(username))
-                        {
-                            ConsoleUtils.WriteWarning(ResourceUtils.Get("Incorrect Username Warning")!);
-                            ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
-                            username = Console.ReadLine();
-                        }
-                    }
-                    else
-                        username = string.IsNullOrWhiteSpace(username) ? savedUsername : username;
-
-                    ConfigManager.SetValue("savedUsername", username);
-
-                    PresenceManager.InitializePresence();
-                    PresenceTimer.Run(key == '1' ? PresenceMode.DISPATCHER : PresenceMode.DRIVER, username);
+                    menu.SetTitle(GetLocaleMenuTitle());
+                    menu.SetOptions(GetLocaleMenuOptions());
 
                     break;
-
-                case '3':
-                    ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
-                    string? sceneryName = Console.ReadLine();
-
-                    while (string.IsNullOrWhiteSpace(sceneryName))
-                    {
-                        ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
-                        sceneryName = Console.ReadLine();
-                    }
-
-                    PresenceManager.InitializePresence();
-                    PresenceManager.ShowPresenceEditorData(sceneryName);
-
+                case 4:
+                    LanguageManager.RunRPCLanguageChoice(true);
                     break;
-
-                case '4':
-                    LanguageChoice(true);
-                    Console.Clear();
-                    continue;
-
                 default:
-                    System.Environment.Exit(0);
+                    mainLoop = false;
                     break;
             }
 
-            ConsoleUtils.WriteWarning(ResourceUtils.Get("Change Settings Info")!);
-            ConsoleKey confirmKey = Console.ReadKey().Key;
+            if (selectedIndex >= 0 && selectedIndex <= 2)
+            {
+                Console.ReadKey();
+                PresenceTimer.Stop();
+                PresenceManager.ResetPresenceData();
+                Console.Clear();
+            }
 
-            PresenceTimer.Stop();
-            PresenceManager.ResetPresenceData();
-
-            if (confirmKey != ConsoleKey.Enter)
-                mainLoop = false;
-        }
+        } while (mainLoop == true);
     }
+
+    private void RunDispatcherOrDriverSelection(int SelectedIndex)
+    {
+        string? savedUsername = ConfigManager.ReadValue("savedUsername");
+
+        if (savedUsername != null)
+            ConsoleUtils.WritePrompt(string.Format(ResourceUtils.Get("Username Prompt With Default")!, savedUsername));
+        else
+            ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
+
+        string? username = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(savedUsername))
+        {
+            while (string.IsNullOrWhiteSpace(username))
+            {
+                ConsoleUtils.WriteWarning(ResourceUtils.Get("Incorrect Username Warning")!);
+                ConsoleUtils.WritePrompt(ResourceUtils.Get("Username Prompt")!);
+                username = Console.ReadLine();
+            }
+        }
+        else
+            username = string.IsNullOrWhiteSpace(username) ? savedUsername : username;
+
+        ConfigManager.SetValue("savedUsername", username);
+
+        PresenceManager.InitializePresence();
+        PresenceTimer.Run(SelectedIndex == 0 ? PresenceMode.DISPATCHER : PresenceMode.DRIVER, username);
+    }
+
+    private void RunEditorSelection()
+    {
+        ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
+        string? sceneryName = Console.ReadLine();
+
+        while (string.IsNullOrWhiteSpace(sceneryName))
+        {
+            ConsoleUtils.WritePrompt(ResourceUtils.Get("Scenery Name Prompt")!);
+            sceneryName = Console.ReadLine();
+        }
+
+        PresenceManager.InitializePresence();
+        PresenceManager.ShowPresenceEditorData(sceneryName);
+    }
+
+    private string GetLocaleMenuTitle()
+    {
+        return ResourceUtils.Get("Mode Choice Info").ToUpper();
+    }
+
+    private string[] GetLocaleMenuOptions()
+    {
+        return new string[]
+        {
+            ResourceUtils.Get("Mode Choice Dispatcher"),
+            ResourceUtils.Get("Mode Choice Driver"),
+            ResourceUtils.Get("Mode Choice Editor"),
+            ResourceUtils.Get("Mode Choice Language"),
+            ResourceUtils.Get("Mode Choice RPC Language"),
+            ResourceUtils.Get("Mode Choice Exit")
+        };
+    }
+
 }
 
 
