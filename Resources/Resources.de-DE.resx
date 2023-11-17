@@ -150,7 +150,7 @@
     <comment>Anfangsmeldung, Zeile 1</comment>
   </data>
   <data name="Initial Info 2" xml:space="preserve">
-    <value>Vergessen Sie nicht, die Option "Aktivitätsstatus" in den Datenschutzeinstellungen des Servers UND in den persönlichen Einstellungen unter der Registerkarte "Aktivitätsschutz" zu aktivieren. Andernfalls wird der benutzerdefinierte Status möglicherweise nicht für andere Benutzer angezeigt!</value>
+    <value>Vergessen Sie nicht, die Option "Aktivitätsstatus" in den Datenschutzeinstellungen des Servers UND in den persönlichen Einstellungen unter der Registerkarte "Aktivitätseinstellungen" zu aktivieren. Andernfalls wird der benutzerdefinierte Status möglicherweise nicht für andere Benutzer angezeigt!</value>
     <comment>Anfangsmeldung, Zeile 2</comment>
   </data>
   <data name="Language Name" xml:space="preserve">
@@ -178,11 +178,11 @@
     <comment>Meldung zur Wahl des Modus</comment>
   </data>
   <data name="Mode Choice Language" xml:space="preserve">
-    <value>APP-SPRACHE</value>
+    <value>APP SPRACHE</value>
     <comment>Language mode choice info</comment>
   </data>
   <data name="Mode Choice RPC Language" xml:space="preserve">
-    <value>PRESENCE SPRACHE</value>
+    <value>DISCORD STATUS SPRACHE</value>
     <comment>RPC language mode choice info</comment>
   </data>
   <data name="Presence Language Change Info" xml:space="preserve">
@@ -302,7 +302,7 @@
     <comment>Title of the version update dialog</comment>
   </data>
   <data name="Update Error" xml:space="preserve">
-    <value>Ooops! Die aktuelle Version des Programms kann nicht heruntergeladen werden! Versuchen Sie es erneut, und wenn das Problem weiterhin auftritt, melden Sie es bitte dem Autor!</value>
+    <value>Ooops! Die aktuelle Version des Programms kann nicht heruntergeladen werden! Versuchen Sie es bitte erneut, und wenn das Problem weiterhin auftritt, melden Sie es bitte dem Autor!</value>
     <comment>Update download error warning</comment>
   </data>
   <data name="Update Info 1" xml:space="preserve">
