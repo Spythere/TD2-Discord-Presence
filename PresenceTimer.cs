@@ -14,7 +14,7 @@ namespace TD2_Presence
 
     public static class PresenceTimer
     {
-        public static readonly int refreshSeconds = 15;
+        public static readonly int refreshSeconds = 25;
         public static Timer? timer;
 
         public static void Run(PresenceMode mode, string username)

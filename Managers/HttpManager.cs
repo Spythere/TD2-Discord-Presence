@@ -15,7 +15,7 @@ namespace TD2_Presence.Managers
 
             try
             {
-                HttpResponseMessage response = await client.GetAsync($"https://stacjownik.spythere.pl/api/getPlayerActivity?name={username}");
+                HttpResponseMessage response = await client.GetAsync($"https://stacjownik.spythere.eu/api/getPlayerActivity?name={username}");
 
                 if (response.IsSuccessStatusCode)
                 {
